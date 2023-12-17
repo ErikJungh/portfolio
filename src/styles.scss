@@ -1,1 +1,43 @@
-/* You can add global styles to this file, and also import other style files */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Define global styles using Tailwind CSS classes */
+body.dark {
+  @apply bg-primary-dark text-primaryText-dark;
+  button {
+    @apply bg-primaryButtonBg-dark color-primaryButtonText-dark; /* Apply Tailwind classes */
+  }
+}
+
+body.light {
+  @apply bg-primary-light text-primaryText-light;
+  button {
+    @apply bg-primaryButtonBg-light color-primaryButtonText-light; /* Apply Tailwind classes */
+  }
+}
+body.dark button {
+  @apply bg-primaryButtonBg-dark color-primaryButtonText-dark; /* Apply Tailwind classes */
+}
+
+/* Define styles for light mode */
+body.light button {
+  @apply bg-primaryButtonBg-light color-primaryButtonText-light; /* Apply Tailwind classes */
+}
+.h1 {
+  margin: 0 auto 15px;
+  z-index: 1;
+  max-width: 1000px;
+  font: 300 50px/1.2 "Oswald", sans-serif;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+}
+
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  font-family: "Oswald", sans-serif;
+}
