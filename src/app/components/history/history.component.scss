@@ -35,13 +35,13 @@ body {
 
 // page container
 .container {
-  max-width: 850px;
+  max-width: 50vw;
   padding-top: 50px;
   margin: auto;
 }
 
 // typography
-p {
+p.bodyText {
   font-weight: 300;
   line-height: 1.5;
   font-size: 14px;
@@ -137,6 +137,10 @@ p {
         font-size: 11px;
       }
       .timeline-show-more {
+        display: inline-block;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
         font-weight: 500;
         font-style: normal;
         opacity: 0.8;
@@ -192,49 +196,10 @@ p {
   }
 }
 
-.author {
-  font-family: inherit;
-  padding: 3em;
-  text-align: center;
-  width: 100%;
-  color: white;
-
-  a:link,
-  a:visited {
-    color: white;
-    &:hover {
-      text-decoration: none;
-    }
-  }
-  .btn:link,
-  .btn:visited {
-    margin-top: 1em;
-    text-decoration: none;
-    display: inline-block;
-    font-family: inherit;
-    font-weight: 100;
-    color: white;
-    text-align: center;
-    vertical-align: middle;
-    user-select: none;
-    background-color: black;
-    padding: 1.5em 2rem;
-    border-radius: 1em;
-    transition: 0.5s all;
-    &:hover,
-    &:focus,
-    &:active {
-      background-color: lighten(black, 10%);
-    }
-  }
-}
-
 .timeline-infocard {
   opacity: 0;
-  transition: opacity 0.5s ease-in-out, width 0.5s ease-in-out; /* Separate transitions */
-
+  transition: opacity 0.5s ease-in-out, width 0.5s ease-in-out;
   width: 0;
-  overflow: hidden;
 
   &.expand {
     width: 25%; /* Set the desired final width */
@@ -250,23 +215,42 @@ p {
 }
 
 .infocard-body {
-  background: $timeline-body-bg;
+  background: rgba(255, 255, 255, 0.15);
   border-radius: $timeline-body-round;
-  padding: 20px 20px 15px;
-  margin-left: 100px;
-  height: 70vw;
 
+  margin-left: 40px;
+  height: auto;
   box-shadow: $timeline-body-shadow;
+}
+.infocard-content {
+  opacity: 0;
+  padding: 20px 20px 15px;
+  animation: fadeIn 0.5s ease-in-out 1s forwards;
 
-  &:before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 70vw;
-    width: 100%;
+  &.fade-in {
+    animation: fadeIn 0.5s ease-in-out 0.5s forwards;
+  }
 
-    filter: blur(0px);
+  &.fade-out {
+    animation: fadeOut 0.25s ease-in-out backwards;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes fadeOut {
+    from {
+      opacity: 1;
+    }
+    to {
+      opacity: 0;
+    }
   }
 }
 
@@ -283,8 +267,8 @@ h5 {
     background-repeat: no-repeat;
     display: inline;
     transition: 0.5s ease;
-    padding-left: 5px;
-    padding-right: 5px;
+    padding-left: 2px;
+    padding-right: 2px;
   }
 
   &:hover {

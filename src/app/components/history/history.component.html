@@ -4,178 +4,93 @@
   <div class="w-auto flex">
     <div class="container">
       <div class="timeline">
-        <div class="timeline-container primary">
+        <div
+          *ngFor="let item of timeLineItems; let i = index"
+          class="timeline-container primary"
+          id="{{ i }}"
+          (mouseenter)="setSelectedIndex(i)"
+        >
           <div class="timeline-icon">
             <i class="far fa-grin-wink"></i>
           </div>
           <div class="timeline-body">
             <h4 class="timeline-title">
-              <span class="badge">Telecomputing</span>
+              <span class="badge">{{ item.title }}</span>
             </h4>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam
-              necessitatibus numquam earum ipsa fugiat veniam suscipit, officiis
-              repudiandae, eum recusandae neque dignissimos. Cum fugit
-              laboriosam culpa, repellendus esse commodi deserunt.
+            <p class="bodyText">
+              {{ item.body }}
             </p>
             <div class="flex flex-row justify-between">
-              <p class="timeline-subtitle">Stockholm, Kista</p>
+              <p class="bodyText timeline-subtitle">{{ item.subtitle }}</p>
               <h5
                 class="timeline-show-more cursor-pointer"
-                (click)="setSelectedIndex(1)"
+                [@textAnimation]="
+                  selectedIndex === i ? 'expanded' : 'collapsed'
+                "
+                (click)="setSelectedIndex(i)"
               >
-                <span>Visa mer</span>
+                <span *ngIf="selectedIndex !== i">Visa mer</span>
+                <span *ngIf="selectedIndex === i">Dölj</span>
               </h5>
             </div>
-          </div>
-        </div>
-
-        <div class="timeline-container info">
-          <div class="timeline-icon">
-            <i class="far fa-grin-tears"></i>
-          </div>
-          <div class="timeline-body">
-            <h4 class="timeline-title">
-              <span class="badge">Uppsala University</span>
-            </h4>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam
-              necessitatibus numquam earum ipsa fugiat veniam suscipit, officiis
-              repudiandae, eum recusandae neque dignissimos. Cum fugit
-              laboriosam culpa, repellendus esse commodi deserunt.
-            </p>
-            <p class="timeline-subtitle">Uppsala, Uppsala</p>
-          </div>
-        </div>
-
-        <div class="timeline-container primary">
-          <div class="timeline-icon">
-            <i class="far fa-grin"></i>
-          </div>
-          <div class="timeline-body">
-            <h4 class="timeline-title"><span class="badge">Visolit</span></h4>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam
-              necessitatibus numquam earum ipsa fugiat veniam suscipit, officiis
-              repudiandae, eum recusandae neque dignissimos. Cum fugit
-              laboriosam culpa, repellendus esse commodi deserunt.
-            </p>
-            <p class="timeline-subtitle">Stockholm, Kista</p>
-          </div>
-        </div>
-        <div class="timeline-container primary">
-          <div class="timeline-icon">
-            <i class="far fa-grin"></i>
-          </div>
-          <div class="timeline-body">
-            <h4 class="timeline-title">
-              <span class="badge">Amino health</span>
-            </h4>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam
-              necessitatibus numquam earum ipsa fugiat veniam suscipit, officiis
-              repudiandae, eum recusandae neque dignissimos. Cum fugit
-              laboriosam culpa, repellendus esse commodi deserunt.
-            </p>
-            <p class="timeline-subtitle">Uppsala</p>
-          </div>
-        </div>
-        <div class="timeline-container primary">
-          <div class="timeline-icon">
-            <i class="far fa-grin"></i>
-          </div>
-          <div class="timeline-body">
-            <h4 class="timeline-title">
-              <span class="badge">Cytiva</span>
-            </h4>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam
-              necessitatibus numquam earum ipsa fugiat veniam suscipit, officiis
-              repudiandae, eum recusandae neque dignissimos. Cum fugit
-              laboriosam culpa, repellendus esse commodi deserunt.
-            </p>
-            <p class="timeline-subtitle">Uppsala, Uppsala</p>
-          </div>
-        </div>
-        <div class="timeline-container primary">
-          <div class="timeline-icon">
-            <i class="far fa-grin"></i>
-          </div>
-          <div class="timeline-body">
-            <h4 class="timeline-title">
-              <span class="badge">Swace Digital</span>
-            </h4>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam
-              necessitatibus numquam earum ipsa fugiat veniam suscipit, officiis
-              repudiandae, eum recusandae neque dignissimos. Cum fugit
-              laboriosam culpa, repellendus esse commodi deserunt.
-            </p>
-            <p class="timeline-subtitle">Uppsala, Uppsala</p>
-          </div>
-        </div>
-        <div class="timeline-container primary">
-          <div class="timeline-icon">
-            <i class="far fa-grin"></i>
-          </div>
-          <div class="timeline-body">
-            <h4 class="timeline-title">
-              <span class="badge">Intensogruppen</span>
-            </h4>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam
-              necessitatibus numquam earum ipsa fugiat veniam suscipit, officiis
-              repudiandae, eum recusandae neque dignissimos. Cum fugit
-              laboriosam culpa, repellendus esse commodi deserunt.
-            </p>
-            <p class="timeline-subtitle">Göteborg, Västra Götaland</p>
-          </div>
-        </div>
-        <div class="timeline-container primary">
-          <div class="timeline-icon">
-            <i class="far fa-grin"></i>
-          </div>
-          <div class="timeline-body">
-            <h4 class="timeline-title">
-              <span class="badge">Uppsala University</span>
-            </h4>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam
-              necessitatibus numquam earum ipsa fugiat veniam suscipit, officiis
-              repudiandae, eum recusandae neque dignissimos. Cum fugit
-              laboriosam culpa, repellendus esse commodi deserunt.
-            </p>
-            <p class="timeline-subtitle">Uppsala, Uppsala</p>
-          </div>
-        </div>
-        <div class="timeline-container primary">
-          <div class="timeline-icon">
-            <i class="far fa-grin"></i>
-          </div>
-          <div class="timeline-body">
-            <h4 class="timeline-title">
-              <span class="badge">Sylog Väst AB</span>
-            </h4>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam
-              necessitatibus numquam earum ipsa fugiat veniam suscipit, officiis
-              repudiandae, eum recusandae neque dignissimos. Cum fugit
-              laboriosam culpa, repellendus esse commodi deserunt.
-            </p>
-            <p class="timeline-subtitle">Göteborg, Västra Götaland</p>
           </div>
         </div>
       </div>
     </div>
   </div>
   <div
-    class="timeline-infocard h-[70vh] pt-[50px] sticky top-32"
+    class="timeline-infocard h-[70vh] pt-[50px] sticky top-12"
+    *ngFor="let card of infoCards; let i = index"
     [ngClass]="{
-      expand: selectedIndex !== -1,
-      'fade-in': selectedIndex !== -1,
-      'fade-out': selectedIndex === -1
+      expand: selectedIndex === i,
+      'fade-in': selectedIndex === i,
+      'fade-out': selectedIndex !== i
     }"
   >
-    <div class="infocard-body"></div>
+    <div class="infocard-body">
+      <div
+        class="infocard-content"
+        [ngClass]="{
+          'fade-in': selectedIndex === i,
+          'fade-out': selectedIndex !== i
+        }"
+      >
+        <div class="w-full h-full flex-col flex items-center">
+          <div
+            class="h-20 flex w-full bg-primary rounded-large items-center justify-center"
+          >
+            <img
+              class="bg-cover bg-no-repeat mx-auto w-16 h-16 flex rounded-large"
+              [src]="'../../../assets/' + card.image"
+              alt="Card Image"
+            />
+          </div>
+        </div>
+        <div class="w-full pt-4">
+          <h3 class="whitespace-nowrap text-secondaryText">
+            {{ card.title }}
+          </h3>
+        </div>
+        <div class="w-full">
+          <h3 class="whitespace-nowrap text-sm text-secondaryText">
+            {{ card.subtitle }}
+          </h3>
+        </div>
+        <div class="w-full pt-4">
+          <h3 class="text-secondaryText py-2">Erfarenheter</h3>
+          <div
+            class="flex gap-1 w-full"
+            [ngClass]="i == showContentIndex ? 'flex-wrap' : 'hidden'"
+          >
+            <div
+              *ngFor="let tag of card.tags; let i = index"
+              class="bg-secondary w-fit px-3 py-1 rounded-default"
+            >
+              <p class="font-normal text-primaryDark">{{ tag }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>

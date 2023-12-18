@@ -17,12 +17,13 @@ module.exports = {
         primaryButtonTextLight: "#000000",
         primaryButtonTextDark: "#00ffff",
         primary: "#2d2d2d",
-        secondary: "#ff1f71"
+        secondary: "#ff1f71",
+        secondaryText: "#bcbcbc",
       },
       borderRadius: {
         // Default border radius of 10px
         default: "4px",
-        large:"8px"
+        large: "8px",
       },
     },
   },

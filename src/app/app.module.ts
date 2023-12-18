@@ -9,10 +9,21 @@ import { HeaderComponent } from './components/header/header.component';
 import { AboutComponent } from './components/about/about.component';
 import { HistoryComponent } from './components/history/history.component';
 import { ScrollDownComponent } from './components/scroll-down/scroll-down.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { SelectedDirective } from './directives/selected.directive';
 
 @NgModule({
-  declarations: [AppComponent, HeroComponent, EjButtonComponent, HeaderComponent, AboutComponent, HistoryComponent, ScrollDownComponent],
-  imports: [BrowserModule, AppRoutingModule],
+  declarations: [
+    AppComponent,
+    HeroComponent,
+    EjButtonComponent,
+    HeaderComponent,
+    AboutComponent,
+    HistoryComponent,
+    ScrollDownComponent,
+    SelectedDirective,
+  ],
+  imports: [BrowserModule, AppRoutingModule, BrowserAnimationsModule],
   providers: [],
   bootstrap: [AppComponent],
 })

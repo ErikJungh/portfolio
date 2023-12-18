@@ -32,9 +32,10 @@
 }
 
 .circle-content {
-  background: #ff1f71;
-  box-shadow: 0 0 5px #ff1f71, 0 0 15px #ff1f71, 0 0 30px #ff1f71,
-    0 0 60px #ff1f71;
+  background: theme("colors.secondary");
+  box-shadow: 0 0 5px theme("colors.secondary"),
+    0 0 15px theme("colors.secondary"), 0 0 30px theme("colors.secondary"),
+    0 0 60px theme("colors.secondary");
   animation: pulsate 3s ease-in-out infinite;
 }
 
@@ -46,15 +47,18 @@
 
 @keyframes pulsate {
   0% {
-    box-shadow: 0 0 5px #ff1f71, 0 0 15px #ff1f71, 0 0 30px #ff1f71,
-      0 0 60px #ff1f71;
+    box-shadow: 0 0 5px theme("colors.secondary"),
+      0 0 15px theme("colors.secondary"), 0 0 30px theme("colors.secondary"),
+      0 0 60px theme("colors.secondary");
   }
   50% {
-    box-shadow: 0 0 10px #ff1f71, 0 0 45px #ff1f71, 0 0 40px #ff1f71,
-      0 0 80px #ff1f71;
+    box-shadow: 0 0 10px theme("colors.secondary"),
+      0 0 45px theme("colors.secondary"), 0 0 40px theme("colors.secondary"),
+      0 0 80px theme("colors.secondary");
   }
   100% {
-    box-shadow: 0 0 5px #ff1f71, 0 0 15px #ff1f71, 0 0 30px #ff1f71,
-      0 0 60px #ff1f71;
+    box-shadow: 0 0 5px theme("colors.secondary"),
+      0 0 15px theme("colors.secondary"), 0 0 30px theme("colors.secondary"),
+      0 0 60px theme("colors.secondary");
   }
 }
