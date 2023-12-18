@@ -1,38 +1,42 @@
-<div class="w-screen h-[70vh] flex flex-row max-w-7xl mx-auto">
-  <div class="flex flex-col p-8 w-[40%] justify-center">
-    <div class="flex">
-      <p class="text-2xl">Hej! Mitt namn är Erik</p>
-    </div>
-    <div class="flex">
-      <p class="text-[50px] m-0">
-        Jag tycker om att utveckla appar, hemsidor och andra digitala verktyg.
-      </p>
-    </div>
-    <div class="flex">
-      <button class="px-12 py-4 rounded-default">Låt oss prata</button>
-    </div>
-  </div>
-  <div class="flex w-[50%]">
-    <div class="h-full w-full flex items-end justify-end">
-      <div
-        class="absolute items-end justify-end z-10 w-[500px] h-[500px] rounded-full"
-      >
-        <div
-          class="absolute justify-end items-end flex z-20 w-[500px] h-[500px] mt-32"
-        >
-          <div class="success circle"></div>
-          <div class="icon">
-            <i class="fa fa-check"></i>
-          </div>
+<div
+  class="w-screen h-[70vh] flex flex-row mx-auto overflow-hidden hero-gradient -mt-16"
+>
+  <!-- <button (click)="onToggleColorModeClick()">
+    <p>Toggle color mode</p>
+  </button> -->
+  <div class="max-w-[1400px] h-full flex flex-row m-auto justify-evenly">
+    <div class="flex flex-col mt-32 w-[50vw] justify-center scale-150">
+      <div>
+        <p class="text-2xl text-[#bcbcbc] font-semibold py-0 my-0">
+          Hej, Jag heter Erik!
+        </p>
+        <div class="w-[full] flex max-h-24">
+          <app-about></app-about>
         </div>
-
+      </div>
+      <div class="flex mt-16">
+        <app-ej-button [text]="'Kontakta mig'"></app-ej-button>
+      </div>
+    </div>
+    <div class="flex w-[50vw]">
+      <div class="h-full w-full flex items-end justify-end">
         <div
-          class="absolute justify-end items-end flex z-20 w-[500px] h-[500px] profile-pic"
-        ></div>
+          class="absolute items-end justify-end z-10 w-[700px] h-[700px] rounded-full"
+        >
+          <div
+            class="absolute justify-end items-end flex z-20 w-[600px] h-[600px] top-60 ml-[70px]"
+          >
+            <div class="circle-content circle"></div>
+            <div class="icon">
+              <i class="fa fa-check"></i>
+            </div>
+          </div>
+
+          <div
+            class="absolute justify-end items-end flex z-20 w-[700px] h-[700px] profile-pic"
+          ></div>
+        </div>
       </div>
     </div>
   </div>
 </div>
-<button (click)="onToggleColorModeClick()">
-  <p>Toggle color mode</p>
-</button>

@@ -1,10 +1,17 @@
 <div
+  id="body"
+  class="h-auto w-full"
   [ngClass]="
     isDarkMode
       ? 'bg-primaryDark text-primaryText-dark'
       : 'bg-primaryLight text-primaryText-light'
   "
 >
+  <app-header></app-header>
   <app-hero (toggleColorModeClick)="toggleColorMode()"></app-hero>
-  <div class="w-screen bg-white h-48 z-40 absolute"></div>
+
+  <div class="w-full h-auto bg-primary">
+    <app-scroll-down></app-scroll-down>
+    <app-history></app-history>
+  </div>
 </div>

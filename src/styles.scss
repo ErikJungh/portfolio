@@ -2,27 +2,33 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Define global styles using Tailwind CSS classes */
+html,
+body {
+  height: 100%;
+
+  margin: 0;
+  padding: 0;
+}
 body.dark {
   @apply bg-primary-dark text-primaryText-dark;
   button {
-    @apply bg-primaryButtonBg-dark color-primaryButtonText-dark; /* Apply Tailwind classes */
+    @apply bg-primaryButtonBg-dark color-primaryButtonText-dark;
   }
 }
 
 body.light {
   @apply bg-primary-light text-primaryText-light;
   button {
-    @apply bg-primaryButtonBg-light color-primaryButtonText-light; /* Apply Tailwind classes */
+    @apply bg-primaryButtonBg-light color-primaryButtonText-light;
   }
 }
 body.dark button {
-  @apply bg-primaryButtonBg-dark color-primaryButtonText-dark; /* Apply Tailwind classes */
+  @apply bg-primaryButtonBg-dark color-primaryButtonText-dark;
 }
 
 /* Define styles for light mode */
 body.light button {
-  @apply bg-primaryButtonBg-light color-primaryButtonText-light; /* Apply Tailwind classes */
+  @apply bg-primaryButtonBg-light color-primaryButtonText-light;
 }
 .h1 {
   margin: 0 auto 15px;

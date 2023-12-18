@@ -1,3 +1,7 @@
+.hero-gradient {
+  background: linear-gradient(to bottom, #2d2d2d, #2d2d2d); /*fiolet*/
+}
+
 .profile-pic {
   background-image: url("../../../assets/linkedin.png");
   background-repeat: no-repeat;
@@ -6,20 +10,11 @@
 
 .circle-wrapper {
   position: absolute;
-  width: 500px;
-  height: 500px;
+  width: 700px;
+  height: 700px;
   float: left;
   margin: 10px;
   z-index: 1;
-}
-
-.icon {
-  position: absolute;
-  color: #fff;
-  font-size: 55px;
-  top: 55px;
-  left: 55px;
-  transform: translate(-50%, -50%);
 }
 
 .circle {
@@ -28,21 +23,38 @@
   height: 100%;
   border-radius: 100%;
   padding: 2.5px;
-  background-clip: content-box;
   animation: spin 90s linear infinite;
+  border-radius: 1000px;
 }
 
 .circle-wrapper:active .circle {
   animation: spin 20s linear infinite;
 }
 
-.success {
-  background-color: #f5f5dc;
-  border: 6px dashed #f5f5dc;
+.circle-content {
+  background: #ff1f71;
+  box-shadow: 0 0 5px #ff1f71, 0 0 15px #ff1f71, 0 0 30px #ff1f71,
+    0 0 60px #ff1f71;
+  animation: pulsate 3s ease-in-out infinite;
 }
 
 @keyframes spin {
   100% {
     transform: rotateZ(360deg);
+  }
+}
+
+@keyframes pulsate {
+  0% {
+    box-shadow: 0 0 5px #ff1f71, 0 0 15px #ff1f71, 0 0 30px #ff1f71,
+      0 0 60px #ff1f71;
+  }
+  50% {
+    box-shadow: 0 0 10px #ff1f71, 0 0 45px #ff1f71, 0 0 40px #ff1f71,
+      0 0 80px #ff1f71;
+  }
+  100% {
+    box-shadow: 0 0 5px #ff1f71, 0 0 15px #ff1f71, 0 0 30px #ff1f71,
+      0 0 60px #ff1f71;
   }
 }

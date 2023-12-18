@@ -1,0 +1,18 @@
+.background-gradient {
+  background: linear-gradient(to bottom, #222222, #2d2d2d); /*fiolet*/
+}
+.scroll-down-button {
+  background-image: url("../../../assets/chevron-up.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  border: none;
+  background-color: transparent;
+  transition: transform 0.3s, filter 0.3s; /* Adding transitions for smooth animation */
+
+  &:hover {
+    transform: scale(1.1); /* Scale up by 10% on hover (adjust as needed) */
+    filter: brightness(
+      90%
+    ); /* Increase brightness on hover (adjust as needed) */
+  }
+}

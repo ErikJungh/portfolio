@@ -7,7 +7,7 @@ import { Component, Input } from '@angular/core';
 })
 export class AppComponent {
   title = 'portfolio';
-  isDarkMode: boolean = false;
+  isDarkMode: boolean = true;
 
   toggleColorMode(): void {
     this.isDarkMode = !this.isDarkMode;

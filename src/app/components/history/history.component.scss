@@ -1,0 +1,295 @@
+@import url("https://fonts.googleapis.com/css?family=Niramit:300,300i,700");
+
+// reset some browser default styles
+* {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+// colors
+$primary: theme("colors.secondary");
+$secondary: theme("colors.secondary");
+$info: theme("colors.secondary");
+$success: theme("colors.secondary");
+$warning: theme("colors.secondary");
+$danger: theme("colors.secondary");
+
+// timeline variables
+$body-bg: theme("colors.primary");
+$timeline-before-bg: #222a42;
+$timeline-body-bg: linear-gradient(
+  to left,
+  rgba(255, 255, 255, 0.15),
+  transparent
+);
+$timeline-body-round: 3px;
+$timeline-body-shadow: 1px 3px 9px rgba(0, 0, 0, 0.6);
+
+body {
+  font-family: "K2D", sans-serif;
+  background: $body-bg;
+  width: 100vw;
+  top: 0;
+  letter-spacing: 1px;
+}
+
+// page container
+.container {
+  max-width: 850px;
+  padding-top: 50px;
+  margin: auto;
+}
+
+// typography
+p {
+  font-weight: 300;
+  line-height: 1.5;
+  font-size: 14px;
+  opacity: 0.8;
+}
+
+// timeline style
+.timeline {
+  position: relative;
+  padding-left: 4rem;
+  margin: 0 0 0 30px;
+  color: white;
+
+  &:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 4px;
+    height: 100%;
+    background: $timeline-body-bg;
+  }
+
+  .timeline-container {
+    position: relative;
+    margin-bottom: 2.5rem;
+
+    .timeline-icon {
+      position: absolute;
+      left: -95px;
+      top: 0px;
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      text-align: center;
+      font-size: 2rem;
+      background: $secondary;
+
+      i {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+      }
+
+      img {
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+      }
+    }
+
+    .timeline-body {
+      background: $timeline-body-bg;
+      border-radius: $timeline-body-round;
+      padding: 20px 20px 15px;
+      box-shadow: $timeline-body-shadow;
+
+      &:before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 10%;
+        width: 60%;
+        height: 100%;
+        background: linear-gradient(
+          to left,
+          rgba(255, 255, 255, 0.15),
+          transparent
+        );
+        transform: skewX(45deg) translate(0);
+        transition: 0.5s;
+        filter: blur(0px);
+      }
+
+      .timeline-title {
+        margin-bottom: 1.4rem;
+
+        .badge {
+          background: $secondary;
+          padding: 4px 8px;
+          border-radius: 3px;
+          font-size: 12px;
+          font-weight: bold;
+        }
+      }
+
+      .timeline-subtitle {
+        font-weight: 300;
+        font-style: italic;
+        opacity: 0.4;
+        margin-top: 16px;
+        font-size: 11px;
+      }
+      .timeline-show-more {
+        font-weight: 500;
+        font-style: normal;
+        opacity: 0.8;
+        font-size: 14px;
+        background-color: theme("colors.primary");
+        padding: 4px 20px 4px 20px;
+        justify-content: center;
+        align-items: center;
+        display: flex;
+        border-radius: theme("borderRadius.default");
+      }
+    }
+
+    // Primary Timeline
+    &.primary {
+      .badge,
+      .timeline-icon {
+        background: $primary !important;
+      }
+    }
+
+    // Info Timeline
+    &.info {
+      .badge,
+      .timeline-icon {
+        background: $info !important;
+      }
+    }
+
+    // Success Timeline
+    &.success {
+      .badge,
+      .timeline-icon {
+        background: $success !important;
+      }
+    }
+
+    // Warning Timeline
+    &.warning {
+      .badge,
+      .timeline-icon {
+        background: $warning !important;
+      }
+    }
+
+    // Dnager Timeline
+    &.danger {
+      .badge,
+      .timeline-icon {
+        background: $danger !important;
+      }
+    }
+  }
+}
+
+.author {
+  font-family: inherit;
+  padding: 3em;
+  text-align: center;
+  width: 100%;
+  color: white;
+
+  a:link,
+  a:visited {
+    color: white;
+    &:hover {
+      text-decoration: none;
+    }
+  }
+  .btn:link,
+  .btn:visited {
+    margin-top: 1em;
+    text-decoration: none;
+    display: inline-block;
+    font-family: inherit;
+    font-weight: 100;
+    color: white;
+    text-align: center;
+    vertical-align: middle;
+    user-select: none;
+    background-color: black;
+    padding: 1.5em 2rem;
+    border-radius: 1em;
+    transition: 0.5s all;
+    &:hover,
+    &:focus,
+    &:active {
+      background-color: lighten(black, 10%);
+    }
+  }
+}
+
+.timeline-infocard {
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out, width 0.5s ease-in-out; /* Separate transitions */
+
+  width: 0;
+  overflow: hidden;
+
+  &.expand {
+    width: 25%; /* Set the desired final width */
+  }
+
+  &.fade-in {
+    opacity: 1;
+  }
+
+  &.fade-out {
+    opacity: 0;
+  }
+}
+
+.infocard-body {
+  background: $timeline-body-bg;
+  border-radius: $timeline-body-round;
+  padding: 20px 20px 15px;
+  margin-left: 100px;
+  height: 70vw;
+
+  box-shadow: $timeline-body-shadow;
+
+  &:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 70vw;
+    width: 100%;
+
+    filter: blur(0px);
+  }
+}
+
+h5 {
+  font-size: 20px;
+  color: #fefefe;
+
+  span {
+    background-image: linear-gradient(
+      transparent calc(85% - 1px),
+      darken(#ff1f71, 15%) 5px
+    );
+    background-size: 0;
+    background-repeat: no-repeat;
+    display: inline;
+    transition: 0.5s ease;
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+
+  &:hover {
+    span {
+      background-size: 100%;
+    }
+  }
+}
