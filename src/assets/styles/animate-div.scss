@@ -1,0 +1,22 @@
+.hide-before-animate {
+  visibility: hidden;
+}
+
+.animate-div {
+  animation: slideInFromBottom 1s ease forwards;
+  visibility: visible !important;
+}
+
+/* Define your animation */
+@keyframes slideInFromBottom {
+  from {
+    /* Define initial styles */
+    opacity: 0.5;
+    transform: translateY(10vh);
+  }
+  to {
+    /* Define final styles */
+    opacity: 1;
+    transform: translateY(0vh);
+  }
+}

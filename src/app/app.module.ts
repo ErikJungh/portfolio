@@ -11,6 +11,8 @@ import { HistoryComponent } from './components/history/history.component';
 import { ScrollDownComponent } from './components/scroll-down/scroll-down.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SelectedDirective } from './directives/selected.directive';
+import { AchievementsComponent } from './components/achievements/achievements.component';
+import { AnimateDivDirective } from './directives/animate-div.directive';
 
 @NgModule({
   declarations: [
@@ -22,6 +24,8 @@ import { SelectedDirective } from './directives/selected.directive';
     HistoryComponent,
     ScrollDownComponent,
     SelectedDirective,
+    AchievementsComponent,
+    AnimateDivDirective,
   ],
   imports: [BrowserModule, AppRoutingModule, BrowserAnimationsModule],
   providers: [],

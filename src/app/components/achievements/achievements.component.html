@@ -1,0 +1,47 @@
+<div class="flex flex-row w-screen gap-8 justify-center opacity-0" #cardElement>
+  <div
+    *ngFor="let achievement of achievements; let i = index"
+    class="container"
+  >
+    <div class="card">
+      <div class="card__image-container h-[360px]">
+        <img
+          [ngClass]="i == 2 ? '-mt-20' : ''"
+          class="card__image"
+          [src]="'../../../assets/' + achievement.image"
+          alt="card image"
+        />
+      </div>
+
+      <svg class="card__svg" viewBox="0 0 800 500">
+        <path
+          d="M 0 100 Q 50 200 100 250 Q 250 400 350 300 C 400 250 550 150 650 300 Q 750 450 800 400 L 800 500 L 0 500"
+          stroke="transparent"
+          fill="#333"
+        />
+        <path
+          class="card__line"
+          d="M 0 100 Q 50 200 100 250 Q 250 400 350 300 C 400 250 550 150 650 300 Q 750 450 800 400"
+          stroke="pink"
+          stroke-width="3"
+          fill="transparent"
+        />
+      </svg>
+
+      <div class="card__content flex flex-col justify-between h-[250px]">
+        <h3 class="card__title header-text">
+          <span>{{ achievement.title }}</span>
+        </h3>
+        <p>
+          {{ achievement.body }}
+        </p>
+        <p>
+          {{ achievement.subtitle }}
+        </p>
+        <p>
+          {{ achievement.subSubtitle }}
+        </p>
+      </div>
+    </div>
+  </div>
+</div>

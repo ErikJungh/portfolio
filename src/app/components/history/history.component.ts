@@ -34,6 +34,7 @@ export class HistoryComponent {
     subtitle: string;
     timeLine: string;
     image: string;
+    parentImage?: string;
   }[] = [
     {
       title: 'Telecomputing',
@@ -73,7 +74,7 @@ export class HistoryComponent {
       tags: ['Flutter', 'Dart', 'Firebase', 'Firestore', 'C++'],
       subtitle: 'Uppsala',
       timeLine: 'May 2010 - August 2020',
-      image: 'visolit_logo_small.webp',
+      image: 'amino_health_logo.jpeg',
     },
     {
       title: 'Cytiva',
@@ -94,6 +95,16 @@ export class HistoryComponent {
       image: 'swace_logo.webp',
     },
     {
+      title: 'Rädda baren',
+      role: 'Uppsala',
+      body: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam necessitatibus numquam earum ipsa fugiat veniam suscipit, officiis repudiandae, eum recusandae neque dignissimos. Cum fugit laboriosam culpa, repellendus esse commodi deserunt.',
+      tags: ['React.js', 'MySQL', 'HTML', 'SASS', 'SCSS', 'Docker', 'AWS'],
+      subtitle: 'Uppsala',
+      timeLine: 'May 2010 - August 2020',
+      image: 'savethechildren_logo_small.webp',
+      parentImage: 'swace_logo.webp',
+    },
+    {
       title: 'Intensogruppen',
       role: '.NET Developer',
       body: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam necessitatibus numquam earum ipsa fugiat veniam suscipit, officiis repudiandae, eum recusandae neque dignissimos. Cum fugit laboriosam culpa, repellendus esse commodi deserunt.',
@@ -111,6 +122,34 @@ export class HistoryComponent {
       image: 'intensogruppen_logo.webp',
     },
     {
+      title: 'Uppsala Universitet',
+      role: 'Civiliningenjör Informationsteknik - Mjukvaruutveckling',
+      body: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam necessitatibus numquam earum ipsa fugiat veniam suscipit, officiis repudiandae, eum recusandae neque dignissimos. Cum fugit laboriosam culpa, repellendus esse commodi deserunt.',
+      tags: [
+        'React Native',
+        'Java',
+        'C',
+        'Typescript',
+        'Javascript',
+        'Flutter',
+        'SQL',
+        'Scrum',
+      ],
+      subtitle: 'Uppsala',
+      timeLine: 'Augusti 2018 - Juni 2023',
+      image: 'uppsala_logo_small.webp',
+    },
+
+    {
+      title: 'Sylog Väst AB',
+      role: 'Konsult',
+      body: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam necessitatibus numquam earum ipsa fugiat veniam suscipit, officiis repudiandae, eum recusandae neque dignissimos. Cum fugit laboriosam culpa, repellendus esse commodi deserunt.',
+      tags: [],
+      subtitle: 'Göteborg',
+      timeLine: 'May 2010 - August 2020',
+      image: 'sylog_logo.webp',
+    },
+    {
       title: 'OMDA',
       role: 'Full-Stack Developer',
       body: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam necessitatibus numquam earum ipsa fugiat veniam suscipit, officiis repudiandae, eum recusandae neque dignissimos. Cum fugit laboriosam culpa, repellendus esse commodi deserunt.',
@@ -118,6 +157,17 @@ export class HistoryComponent {
       subtitle: 'Göteborg',
       timeLine: 'May 2010 - August 2020',
       image: 'omda_logo.webp',
+      parentImage: 'sylog_logo.webp',
+    },
+    {
+      title: 'Autoliv',
+      role: 'iOS and Android Developer',
+      body: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam necessitatibus numquam earum ipsa fugiat veniam suscipit, officiis repudiandae, eum recusandae neque dignissimos. Cum fugit laboriosam culpa, repellendus esse commodi deserunt.',
+      tags: ['Swift', 'Kotlin', 'TBD'],
+      subtitle: 'Göteborg',
+      timeLine: 'May 2010 - August 2020',
+      image: 'autoliv_logo_small.webp',
+      parentImage: 'sylog_logo.webp',
     },
   ];
 
@@ -127,7 +177,7 @@ export class HistoryComponent {
     tags: string[];
     image: string;
     subtitle: string;
-    projects: { title: string; url: string }[];
+    projects?: { title: string; url: string }[];
   }[] = [
     {
       title: 'Support Technichian',
@@ -135,7 +185,6 @@ export class HistoryComponent {
       tags: ['Powershell', 'Active Directory', 'Networking', 'Troubleshooting'],
       image: 'telecomputing_logo.webp',
       subtitle: 'May 2018 - Augusti 2019',
-      projects: [],
     },
     {
       title: 'Support Technichian',
@@ -143,7 +192,6 @@ export class HistoryComponent {
       tags: ['Powershell', 'Active Directory', 'Networking', 'Troubleshooting'],
       image: 'visolit_logo.webp',
       subtitle: 'May 2018 - Augusti 2019',
-      projects: [],
     },
     {
       title: 'Software Developer',
@@ -151,7 +199,6 @@ export class HistoryComponent {
       tags: ['Flutter', 'Dart', 'Firebase', 'Firestore', 'C++'],
       image: 'visolit_logo.webp',
       subtitle: 'May 2018 - Augusti 2019',
-      projects: [],
     },
     {
       title: 'Content Data Manager',
@@ -159,13 +206,19 @@ export class HistoryComponent {
       tags: ['Python', 'AutoHotKey', 'Excel'],
       image: 'cytiva_logo.webp',
       subtitle: 'May 2018 - Augusti 2019',
-      projects: [],
+    },
+    {
+      title: 'IT Konsult',
+      body: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam necessitatibus numquam earum ipsa fugiat veniam suscipit, officiis repudiandae, eum recusandae neque dignissimos. Cum fugit laboriosam culpa, repellendus esse commodi deserunt.',
+      tags: [],
+      image: 'swace_logo.webp',
+      subtitle: 'May 2018 - Augusti 2019',
     },
     {
       title: 'Software Developer',
       body: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam necessitatibus numquam earum ipsa fugiat veniam suscipit, officiis repudiandae, eum recusandae neque dignissimos. Cum fugit laboriosam culpa, repellendus esse commodi deserunt.',
       tags: ['React.js', 'MySQL', 'HTML', 'SASS', 'SCSS', 'Docker', 'AWS'],
-      image: 'swace_logo.webp',
+      image: 'savethechildren_logo.webp',
       subtitle: 'May 2018 - Augusti 2019',
       projects: [
         { title: 'Save the Children Resource Centre', url: 'stc.com' },
@@ -193,12 +246,41 @@ export class HistoryComponent {
       ],
     },
     {
+      title: 'Uppsala Universitet',
+      body: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam necessitatibus numquam earum ipsa fugiat veniam suscipit, officiis repudiandae, eum recusandae neque dignissimos. Cum fugit laboriosam culpa, repellendus esse commodi deserunt.',
+      tags: [
+        'C#',
+        'Angular',
+        'Typescript',
+        'SQLServer',
+        'Azure',
+        'HTML',
+        'SCSS',
+      ],
+      image: 'uppsala_logo.webp',
+      subtitle: 'Augusti 2018 - Juni 2023',
+      projects: [],
+    },
+    {
+      title: 'IT Konsult',
+      body: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam necessitatibus numquam earum ipsa fugiat veniam suscipit, officiis repudiandae, eum recusandae neque dignissimos. Cum fugit laboriosam culpa, repellendus esse commodi deserunt.',
+      tags: [],
+      image: 'sylog_logo.webp',
+      subtitle: 'May 2018 - Augusti 2019',
+    },
+    {
       title: 'Fullstack Developer',
       body: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam necessitatibus numquam earum ipsa fugiat veniam suscipit, officiis repudiandae, eum recusandae neque dignissimos. Cum fugit laboriosam culpa, repellendus esse commodi deserunt.',
       tags: ['Java', 'Android', 'C#', 'XML', 'C++', 'MySQL', 'Azure'],
       image: 'omda_logo.webp',
       subtitle: 'May 2018 - Augusti 2019',
-      projects: [],
+    },
+    {
+      title: 'iOS and Android Developer',
+      body: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam necessitatibus numquam earum ipsa fugiat veniam suscipit, officiis repudiandae, eum recusandae neque dignissimos. Cum fugit laboriosam culpa, repellendus esse commodi deserunt.',
+      tags: ['Java', 'Android', 'C#', 'XML', 'C++', 'MySQL', 'Azure'],
+      image: 'autoliv_logo.webp',
+      subtitle: 'May 2018 - Augusti 2019',
     },
   ];
   constructor(private renderer: Renderer2) {}
