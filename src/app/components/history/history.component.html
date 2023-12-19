@@ -7,19 +7,38 @@
         <div
           *ngFor="let item of timeLineItems; let i = index"
           class="timeline-container primary"
-          id="{{ i }}"
-          (mouseenter)="setSelectedIndex(i)"
         >
           <div class="timeline-icon">
-            <i class="far fa-grin-wink"></i>
+            <img
+              class="bg-cover bg-no-repeat mx-auto w-auto h-16 flex rounded-full"
+              [src]="'../../../assets/' + item.image"
+              alt="Card Image"
+            />
           </div>
           <div class="timeline-body">
-            <h4 class="timeline-title">
-              <span class="badge">{{ item.title }}</span>
+            <div class="flex-row flex justify-between w-full">
+              <h4 class="text-base flex">
+                <span class="text-secondaryText">{{ item.title }}</span>
+              </h4>
+              <h4 class="text-base flex">
+                <span class="text-secondaryText">{{ item.timeLine }}</span>
+              </h4>
+            </div>
+            <h4 class="text-xl py-2">
+              <span class="text-secondaryText">{{ item.role }}</span>
             </h4>
+
             <p class="bodyText">
               {{ item.body }}
             </p>
+            <div class="flex gap-1 w-full flex-wrap py-2 max-w-[60%]">
+              <div
+                *ngFor="let tag of item.tags; let i = index"
+                class="bg-transparent w-fit px-3 py-1 rounded-default border-secondary border-2 border-solid"
+              >
+                <p class="font-normal text-secondary">{{ tag }}</p>
+              </div>
+            </div>
             <div class="flex flex-row justify-between">
               <p class="bodyText timeline-subtitle">{{ item.subtitle }}</p>
               <h5
@@ -49,7 +68,7 @@
   >
     <div class="infocard-body">
       <div
-        class="infocard-content"
+        class="infocard-content max-h-[500px]"
         [ngClass]="{
           'fade-in': selectedIndex === i,
           'fade-out': selectedIndex !== i
@@ -60,7 +79,7 @@
             class="h-20 flex w-full bg-primary rounded-large items-center justify-center"
           >
             <img
-              class="bg-cover bg-no-repeat mx-auto w-16 h-16 flex rounded-large"
+              class="bg-cover bg-no-repeat mx-auto w-auto h-16 flex rounded-large"
               [src]="'../../../assets/' + card.image"
               alt="Card Image"
             />
@@ -72,22 +91,29 @@
           </h3>
         </div>
         <div class="w-full">
-          <h3 class="whitespace-nowrap text-sm text-secondaryText">
+          <h3 class="whitespace-nowrap text-sm text-secondaryText py-2">
             {{ card.subtitle }}
           </h3>
         </div>
-        <div class="w-full pt-4">
-          <h3 class="text-secondaryText py-2">Erfarenheter</h3>
+        <div class="w-full">
+          <p class="bodyText">
+            {{ card.body }}
+          </p>
+        </div>
+        <div class="w-full pt-4" *ngIf="card.projects.length > 0">
+          <h3 class="text-secondaryText py-2">Projekt</h3>
           <div
-            class="flex gap-1 w-full"
-            [ngClass]="i == showContentIndex ? 'flex-wrap' : 'hidden'"
+            *ngFor="let project of card.projects; let i = index"
+            class="w-full h-16"
           >
-            <div
-              *ngFor="let tag of card.tags; let i = index"
-              class="bg-secondary w-fit px-3 py-1 rounded-default"
+            <h3 class="text-sm text-secondaryText">{{ project.title }}</h3>
+            <a
+              class="text-sm text-blue-500"
+              [href]="project.url"
+              target="_blank"
+              rel="noopener"
+              >{{ project.url }}</a
             >
-              <p class="font-normal text-primaryDark">{{ tag }}</p>
-            </div>
           </div>
         </div>
       </div>
