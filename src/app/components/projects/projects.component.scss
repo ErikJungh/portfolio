@@ -1,0 +1,137 @@
+/* ----- Variables ----- */
+$color-primary: #4c4c4c;
+$color-secondary: #a6a6a6;
+$color-highlight: #ff3f40;
+
+/* ----- Global ----- */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  display: grid;
+  grid-template-rows: 1fr;
+  font-family: "Raleway", sans-serif;
+  background-color: #01e37f;
+}
+
+h3 {
+  font-size: 0.7em;
+  letter-spacing: 1.2px;
+  color: $color-secondary;
+}
+
+img {
+  max-width: 100%;
+  filter: drop-shadow(1px 1px 3px $color-secondary);
+}
+
+/* ----- Product Section ----- */
+.product {
+  display: grid;
+  grid-template-columns: 0.9fr 1fr;
+  margin: auto;
+  padding: 2.5em 0;
+  min-width: 600px;
+  height: 540px;
+  background-color: theme("colors.tertiary");
+  box-shadow: 0 0.25rem 0.25rem rgba(0, 0, 0, 0.2), 0 0 1rem rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+}
+
+/* ----- Photo Section ----- */
+.product__photo {
+  position: relative;
+}
+
+.photo-container {
+  position: absolute;
+  left: -10.5em;
+  display: grid;
+  grid-template-rows: 1fr;
+  width: 400px;
+  height: 100%;
+  border-radius: 6px;
+  box-shadow: 4px 4px 25px -2px rgba(0, 0, 0, 0.3);
+}
+
+.photo-main {
+  border-radius: 6px 6px 0 0;
+
+  background: linear-gradient(
+    theme("colors.secondary"),
+    theme("colors.primary")
+  );
+
+  img.image-primary {
+    position: absolute;
+    left: 10%;
+    top: 2em;
+    max-width: 50%;
+    filter: saturate(150%) contrast(120%) hue-rotate(10deg)
+      drop-shadow(1px 20px 10px rgba(0, 0, 0, 0.3));
+    &.animate {
+      animation: rotateLeft 1s ease forwards;
+      transform-origin: bottom right;
+    }
+  }
+  img.image-secondary {
+    position: absolute;
+    left: 25%;
+    top: 2em;
+    max-width: 50%;
+    filter: saturate(150%) contrast(120%) hue-rotate(10deg)
+      drop-shadow(1px 20px 10px rgba(0, 0, 0, 0.3));
+  }
+  img.image-tertiary {
+    position: absolute;
+    left: 40%;
+    top: 2em;
+    max-width: 50%;
+    filter: saturate(150%) contrast(120%) hue-rotate(10deg)
+      drop-shadow(1px 20px 10px rgba(0, 0, 0, 0.3));
+    &.animate {
+      animation: rotateRight 1s ease forwards;
+      transform-origin: bottom left;
+    }
+  }
+}
+@keyframes rotateLeft {
+  from {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(-15deg) translateY(-20px);
+  }
+}
+
+@keyframes rotateRight {
+  from {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(15deg) translateY(-20px);
+  }
+}
+
+.title {
+  h2 {
+    margin-bottom: 0.1em;
+    color: theme("colors.primaryText");
+    font-size: 1.5em;
+    font-weight: 900;
+    margin-top: 0;
+    padding-top: 0;
+  }
+
+  span {
+    font-size: 1em;
+    color: theme("colors.secondaryText");
+  }
+}
+h3 {
+  margin-bottom: 0.1em;
+  color: theme("colors.primaryText");
+  font-size: 1.2em;
+  font-weight: 900;
+}

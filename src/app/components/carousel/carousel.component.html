@@ -1,0 +1,144 @@
+<section #carousel id="carousel" class="carousel -mt-16" aria-label="Gallery">
+  <ol class="carousel__viewport bg-primary">
+    <li id="carousel__slide1" tabindex="0" class="carousel__slide">
+      <div class="overlay"></div>
+
+      <div class="carousel__snapper">
+        <div class="w-full justify-center flex flex-col items-center h-[80vh]">
+          <h3
+            id="1"
+            class="text-primaryText title appear-from-bottom-primary text-center"
+          >
+            Butiker
+          </h3>
+          <h4 class="text-primaryText text appear-from-bottom-secondary">
+            Digitalisera dina kundkorgar
+          </h4>
+          <button
+            (click)="scrollToSection('aboutUsSection')"
+            class="btn mt-8 appear-from-bottom-tertiary cursor-pointer"
+            [disabled]="activeIndex !== 1"
+          >
+            <span class="btn-inner">Visa Mer</span>
+          </button>
+        </div>
+        <a (click)="scrollPage(4)" class="carousel__prev cursor-pointer"></a>
+        <a (click)="scrollPage(2)" class="carousel__next cursor-pointer"></a>
+      </div>
+    </li>
+    <li id="carousel__slide2" tabindex="0" class="carousel__slide">
+      <div class="overlay"></div>
+
+      <div class="carousel__snapper">
+        <div class="w-full h-full justify-center flex flex-col items-center">
+          <h3
+            id="2"
+            class="text-primaryText title appear-from-bottom-primary text-center"
+          >
+            GYM
+          </h3>
+          <h4 class="text-primaryText text appear-from-bottom-secondary">
+            Inspirera och informera
+          </h4>
+          <button
+            (click)="scrollToSection('aboutUsSection')"
+            class="btn mt-8 appear-from-bottom-tertiary cursor-pointer"
+            [disabled]="activeIndex !== 2"
+          >
+            <span class="btn-inner">Visa Mer</span>
+          </button>
+        </div>
+        <a (click)="scrollPage(1)" class="carousel__prev cursor-pointer"></a>
+        <a (click)="scrollPage(3)" class="carousel__next cursor-pointer"></a>
+      </div>
+    </li>
+    <li id="carousel__slide3" tabindex="0" class="carousel__slide">
+      <div class="overlay"></div>
+
+      <div class="carousel__snapper">
+        <div class="w-full h-full justify-center flex flex-col items-center">
+          <h3
+            id="3"
+            class="text-primaryText title appear-from-bottom-primary text-center"
+          >
+            Resturanger
+          </h3>
+          <h4 class="text-primaryText text appear-from-bottom-secondary">
+            Förbättra kundupplevelsen
+          </h4>
+          <button
+            (click)="scrollToSection('aboutUsSection')"
+            class="btn mt-8 appear-from-bottom-tertiary cursor-pointer"
+            [disabled]="activeIndex !== 3"
+          >
+            <span class="btn-inner">Visa Mer</span>
+          </button>
+        </div>
+        <a (click)="scrollPage(2)" class="carousel__prev cursor-pointer"></a>
+        <a (click)="scrollPage(4)" class="carousel__next cursor-pointer"></a>
+      </div>
+    </li>
+    <li id="carousel__slide4" tabindex="0" class="carousel__slide">
+      <div class="overlay"></div>
+
+      <div class="carousel__snapper">
+        <div class="w-full h-full justify-center flex flex-col items-center">
+          <h3
+            id="4"
+            class="text-primaryText title appear-from-bottom-primary text-center"
+          >
+            Marknader
+          </h3>
+          <h4 class="text-primaryText text appear-from-bottom-secondary">
+            Håll koll på priser
+          </h4>
+          <button
+            (click)="scrollToSection('aboutUsSection')"
+            class="btn mt-8 appear-from-bottom-tertiary cursor-pointer"
+            [disabled]="activeIndex !== 4"
+          >
+            <span class="btn-inner">Visa Mer</span>
+          </button>
+        </div>
+        <a (click)="scrollPage(3)" class="carousel__prev cursor-pointer"></a>
+        <a (click)="scrollPage(1)" class="carousel__next cursor-pointer"></a>
+      </div>
+    </li>
+  </ol>
+  <aside class="carousel__navigation">
+    <ol class="carousel__navigation-list">
+      <li class="carousel__navigation-item">
+        <a
+          (click)="scrollPage(1)"
+          [ngClass]="activeIndex === 1 ? 'opacity-90' : 'opacity-30'"
+          class="carousel__navigation-button cursor-pointer"
+          ><div class="carousel__navigation-button-line"></div>
+        </a>
+      </li>
+      <li class="carousel__navigation-item">
+        <a
+          (click)="scrollPage(2)"
+          [ngClass]="activeIndex === 2 ? 'opacity-90' : 'opacity-30'"
+          class="carousel__navigation-button cursor-pointer"
+          ><div class="carousel__navigation-button-line"></div
+        ></a>
+      </li>
+      <li class="carousel__navigation-item">
+        <a
+          (click)="scrollPage(3)"
+          [ngClass]="activeIndex === 3 ? 'opacity-90' : 'opacity-30'"
+          class="carousel__navigation-button cursor-pointer"
+          ><div class="carousel__navigation-button-line"></div
+        ></a>
+      </li>
+      <li class="carousel__navigation-item">
+        <a
+          (click)="scrollPage(4)"
+          [ngClass]="activeIndex === 4 ? 'opacity-90' : 'opacity-30'"
+          class="carousel__navigation-button cursor-pointer"
+          ><div class="carousel__navigation-button-line"></div
+        ></a>
+      </li>
+    </ol>
+  </aside>
+</section>

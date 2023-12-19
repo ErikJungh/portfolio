@@ -1,0 +1,373 @@
+@keyframes tonext {
+  75% {
+    left: 0;
+  }
+  95% {
+    left: 100%;
+  }
+  98% {
+    left: 100%;
+  }
+  99% {
+    left: 0;
+  }
+}
+
+@keyframes tostart {
+  75% {
+    left: 0;
+  }
+  95% {
+    left: -300%;
+  }
+  98% {
+    left: -300%;
+  }
+  99% {
+    left: 0;
+  }
+}
+
+@keyframes snap {
+  96% {
+    scroll-snap-align: center;
+  }
+  97% {
+    scroll-snap-align: none;
+  }
+  99% {
+    scroll-snap-align: none;
+  }
+  100% {
+    scroll-snap-align: center;
+  }
+}
+
+* {
+  box-sizing: border-box;
+  scrollbar-color: transparent transparent; /* thumb and track color */
+  scrollbar-width: 0px;
+}
+
+*::-webkit-scrollbar {
+  width: 0;
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+  background: transparent;
+  border: none;
+}
+
+* {
+  -ms-overflow-style: none;
+}
+
+ol,
+li {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+@media screen and (max-width: 768px) {
+  .title {
+    font-size: 20px !important;
+  }
+}
+
+/* Default height for larger screens */
+.carousel {
+  height: 100% !important;
+}
+
+.carousel__viewport {
+  position: relative;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+
+  display: flex;
+  overflow-x: scroll;
+  counter-reset: item;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+}
+
+.carousel__slide {
+  position: relative;
+  flex: 0 0 100%;
+  width: 100%;
+}
+
+.carousel__slide:nth-child(1) {
+  position: relative;
+}
+
+.carousel__slide .overlay {
+  position: absolute;
+  top: 0px;
+  background-color: rgba(7, 20, 32, 0.6);
+
+  width: 100vw;
+  height: 100%;
+}
+
+.carousel__slide:nth-child(1) {
+  background-image: url("../../../assets/amino_health_logo.jpeg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.carousel__slide:nth-child(2) {
+  background-image: url("../../../assets/amino_health_logo.jpeg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.carousel__slide:nth-child(3) {
+  background-image: url("../../../assets/amino_health_logo.jpeg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.carousel__slide:nth-child(4) {
+  background-image: url("../../../assets/amino_health_logo.jpeg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.carousel__slide:before {
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate3d(-50%, -40%, 70px);
+  color: #fff;
+  font-size: 2em;
+}
+
+.carousel__snapper {
+  position: relative;
+  z-index: 100;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  scroll-snap-align: center;
+}
+
+@media (hover: hover) {
+  .carousel__snapper {
+    animation-name: tonext, snap;
+    animation-timing-function: ease;
+  }
+
+  .carousel__slide:last-child .carousel__snapper {
+    animation-name: tostart, snap;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .carousel__snapper {
+    animation-name: none;
+  }
+}
+
+.carousel:hover .carousel__snapper,
+.carousel:focus-within .carousel__snapper {
+  animation-name: none;
+}
+
+.carousel__navigation {
+  position: relative;
+  right: 0;
+  bottom: 30px;
+  left: 0;
+  text-align: center;
+}
+
+.carousel__navigation-list,
+.carousel__navigation-item {
+  display: inline-block;
+}
+
+.carousel__navigation-button {
+  display: inline-block;
+  width: 4.5rem;
+  height: 20px;
+
+  background-clip: content-box;
+  border-left: 0.7rem solid transparent;
+  border-right: 0.7rem solid transparent;
+  font-size: 0;
+  transition: transform 0.1s;
+}
+
+.carousel__navigation-button-line {
+  display: inline-block;
+  width: 4.5rem;
+  height: 3px;
+  margin-top: 10px;
+  background-color: #fff;
+  background-clip: content-box;
+  border-left: 0.7rem solid transparent;
+  border-right: 0.7rem solid transparent;
+
+  font-size: 0;
+  transition: transform 0.1s;
+}
+
+.carousel::before,
+.carousel::after,
+.carousel__prev,
+.carousel__next {
+  position: absolute;
+  z-index: 200;
+  width: 4rem;
+  height: 4rem;
+  transform: translateY(-50%);
+  border-radius: 50%;
+  font-size: 0;
+  outline: 0;
+  user-select: none;
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  -o-user-select: none;
+}
+
+.carousel::before,
+.carousel__prev {
+  left: 1rem;
+}
+
+.carousel::after,
+.carousel__next {
+  right: 1rem;
+}
+
+.carousel::before,
+.carousel::after {
+  content: "";
+  z-index: 1;
+
+  background-repeat: no-repeat;
+  background-position: center center;
+
+  font-size: 2.5rem;
+  line-height: 4rem;
+  text-align: center;
+  pointer-events: none;
+}
+
+.carousel::before {
+  background-image: url("../../../assets/chevron-left.svg");
+}
+
+.carousel::after {
+  background-image: url("../../../assets/chevron-right.svg");
+}
+
+.title {
+  margin: 0 auto 15px;
+  z-index: 1;
+  max-width: 1000px;
+  font: 300 50px/1.2 "Oswald", sans-serif;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  user-select: none;
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  -o-user-select: none;
+}
+.text {
+  margin: 0 auto;
+  max-width: 1000px;
+  font-size: 18px;
+  font: 300 22px/1.2 "Oswald", sans-serif;
+  line-height: 1.4;
+  user-select: none;
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  -o-user-select: none;
+}
+/* CSS for the animation effect */
+@keyframes slideInFromBottom {
+  0% {
+    opacity: 0;
+    transform: translateY(10vh);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.appear-from-bottom-primary,
+.appear-from-bottom-secondary,
+.appear-from-bottom-tertiary {
+  max-width: 1000px;
+  opacity: 0;
+}
+
+.animate {
+  animation: slideInFromBottom 1.2s ease forwards;
+}
+
+.btn {
+  display: inline-block;
+  padding: 13px 20px;
+  color: #fff;
+  text-decoration: none;
+  position: relative;
+  background: transparent;
+  border: 2px solid #e1e1e1;
+  font: 12px/1.2 "Oswald", sans-serif;
+  letter-spacing: 0.4em;
+  text-align: center;
+  text-indent: 2px;
+  text-transform: uppercase;
+  transition: color 0.1s linear 0.05s;
+
+  &::before {
+    content: "";
+    display: block;
+    position: relative;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: #e1e1e1;
+    z-index: 1;
+    opacity: 0;
+    transition: height 0.2s ease, top 0.2s ease, opacity 0s linear 0.2s;
+  }
+
+  &::after {
+    transition: border 0.1s linear 0.05s;
+  }
+
+  .btn-inner {
+    position: relative;
+    z-index: 2;
+  }
+
+  &:hover {
+    color: #373737;
+    transition: color 0.1s linear 0s;
+
+    &::before {
+      top: 0;
+      height: 100%;
+      opacity: 1;
+      transition: height 0.2s ease, top 0.2s ease, opacity 0s linear 0s;
+    }
+
+    &::after {
+      border-color: #373737;
+      transition: border 0.1s linear 0s;
+    }
+  }
+}
