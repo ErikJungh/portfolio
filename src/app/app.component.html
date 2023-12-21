@@ -8,27 +8,34 @@
   "
 >
   <app-header></app-header>
-  <app-hero (toggleColorModeClick)="toggleColorMode()"></app-hero>
+  <app-hero
+    #hero
+    id="hero"
+    (toggleColorModeClick)="toggleColorMode()"
+  ></app-hero>
 
   <div class="w-full h-auto bg-primary">
     <app-scroll-down></app-scroll-down>
-    <div class="bg-primary relative z-30">
+    <div class="bg-primary relative z-30" #history id="history">
       <h2 class="custom m-0">Min historia</h2>
 
       <app-history></app-history>
     </div>
 
-    <div>
+    <div #education id="education">
       <h2 class="custom m-0">Min Utbildning</h2>
 
       <app-achievements></app-achievements>
     </div>
-    <div>
+    <div class="hidden xl:block" #sideprojects>
       <h2 class="custom m-0">Mina sidoprojekt</h2>
-
       <app-projects></app-projects>
     </div>
-    <div>
+    <div class="block xl:hidden" id="sideprojects">
+      <h2 class="custom m-0">Mina sidoprojekt</h2>
+      <app-projects-mobile></app-projects-mobile>
+    </div>
+    <div #contact id="contact">
       <h2 class="custom m-0">Kontakta mig</h2>
 
       <app-contact></app-contact>

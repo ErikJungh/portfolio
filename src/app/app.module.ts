@@ -17,6 +17,7 @@ import { ProjectsComponent } from './components/projects/projects.component';
 import { InViewportDirective } from './directives/in-viewport.directive';
 import { ContactComponent } from './components/contact/contact.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { ProjectsMobileComponent } from './components/projects-mobile/projects-mobile.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { FooterComponent } from './components/footer/footer.component';
     InViewportDirective,
     ContactComponent,
     FooterComponent,
+    ProjectsMobileComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, BrowserAnimationsModule],
   providers: [],

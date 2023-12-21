@@ -11,12 +11,23 @@
   </a>
   <div class="w-[400vw] flex flex-row">
     <div
+      #carousel
       class="w-full"
       *ngFor="let project of projects; let i = index"
       [id]="'projectContainer' + i"
     >
-      <div class="w-[65vw] justify-center items-center mx-auto pb-12">
+      <div
+        class="w-full h-[90vh] min-h-[700px] justify-center items-center mx-auto overflow-y-hidden"
+      >
         <section class="product">
+          <div
+            class="w-full py-2 px-4 justify-center items-center flex flex-col"
+          >
+            <h3 class="custom">
+              <span>{{ project.title }}</span>
+            </h3>
+            <h4>{{ project.subtitle }}</h4>
+          </div>
           <div class="product__photo">
             <div class="photo-container">
               <div class="photo-main" [id]="'photoContainer' + i">
@@ -41,33 +52,10 @@
               </div>
             </div>
           </div>
-          <div class="h-full w-full px-2 flex flex-col justify-between">
-            <div class="title h-[30%]">
-              <h3 class="custom">
-                <span>{{ project.title }}</span>
-              </h3>
-              <h4 class="text-[30px] font-extrabold">{{ project.subtitle }}</h4>
-            </div>
-            <div class="h-[30%]">
-              <p>
-                {{ project.body }}
-              </p>
-            </div>
-            <div class="">
-              <div class="flex gap-1 w-full flex-wrap pt-4">
-                <div
-                  *ngFor="let tag of project.tags; let i = index"
-                  class="bg-transparent w-fit px-3 py-2 rounded-default border-secondary border-2 border-solid"
-                >
-                  <span class="font-bold text-secondary py-0">{{ tag }}</span>
-                </div>
-              </div>
-            </div>
-
-            <div class="w-fit flex relative bottom-0 justify-end items-end">
-              <app-ej-button [text]="project.btnText"></app-ej-button>
-            </div>
+          <div class="w-full h-[30%]">
+            <p class="px-8 pt-8 max-w-[700px] mx-auto">{{ project.body }}</p>
           </div>
+          <app-ej-button [text]="project.btnText"></app-ej-button>
         </section>
       </div>
     </div>
