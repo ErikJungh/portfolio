@@ -18,7 +18,8 @@ import { InViewportDirective } from './directives/in-viewport.directive';
 import { ContactComponent } from './components/contact/contact.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { ProjectsMobileComponent } from './components/projects-mobile/projects-mobile.component';
-
+import { MobileHeaderComponent } from './components/mobile-header/mobile-header.component';
+import { SidenavComponent } from './components/sidenav/sidenav.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -36,6 +37,8 @@ import { ProjectsMobileComponent } from './components/projects-mobile/projects-m
     ContactComponent,
     FooterComponent,
     ProjectsMobileComponent,
+    MobileHeaderComponent,
+    SidenavComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, BrowserAnimationsModule],
   providers: [],

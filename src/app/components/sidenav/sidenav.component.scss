@@ -1,0 +1,27 @@
+.sidenav {
+  position: fixed;
+  top: 4rem;
+  left: 0;
+  height: calc(100% - 4rem);
+  width: 100vw;
+  background-color: theme("colors.primary");
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  overflow-y: auto;
+  transform: translateX(-100%);
+  opacity: 0;
+}
+
+.sidenav ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.sidenav li {
+  padding: 10px;
+}
+
+/* Define animation styles */
+:host {
+  display: block;
+}

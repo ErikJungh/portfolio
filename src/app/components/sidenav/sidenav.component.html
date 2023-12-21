@@ -1,0 +1,22 @@
+<div
+  class="sidenav p-8"
+  [@sidenavAnimation]="isExpanded ? 'expanded' : 'collapsed'"
+>
+  <!-- Your side navigation menu items -->
+  <ul>
+    <li (click)="scrollToSection('history')">
+      <h3 class="custom py-2 cursor-pointer"><span>Erfarenhet</span></h3>
+    </li>
+    <li (click)="scrollToSection('education')">
+      <h3 class="custom py-2 cursor-pointer"><span>Utbildning</span></h3>
+    </li>
+    <li (click)="scrollToSection('sideprojects')">
+      <h3 class="custom py-2 cursor-pointer"><span>Projekt</span></h3>
+    </li>
+    <li (click)="scrollToSection('contact')">
+      <h3 class="custom py-2 cursor-pointer"><span>Kontakt</span></h3>
+    </li>
+
+    <!-- Add other menu items -->
+  </ul>
+</div>

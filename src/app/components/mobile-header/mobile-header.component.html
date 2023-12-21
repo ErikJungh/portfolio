@@ -1,0 +1,26 @@
+<div
+  class="w-screen h-16 sticky top-0 z-50 overflow-x-hidden block lg:hidden"
+  [class.background-color]="isScrolledPastHero"
+>
+  <div class="w-full h-full flex flex-row justify-between px-4">
+    <!-- left -->
+    <div class="w-full h-full flex flex-row items-center gap-8 justify-between">
+      <div class="menu-body">
+        <label for="animatedCheck">
+          <input type="checkbox" id="animatedCheck" (click)="toggleExpand()" />
+          <span></span>
+          <span></span>
+          <span></span>
+        </label>
+      </div>
+
+      <!-- right -->
+      <div class="w-1/2 h-full flex flex-row-reverse items-center"></div>
+    </div>
+  </div>
+</div>
+
+<app-sidenav
+  [isExpanded]="isExpanded"
+  (isExpandedChange)="onExpandChange($event)"
+></app-sidenav>
