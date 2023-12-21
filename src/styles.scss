@@ -2,11 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 @import "assets/styles/animate-div";
+@import "assets/styles/custom-h3.scss";
+@import "assets/styles/custom-h2.scss";
 
 html,
 body {
   height: 100%;
-
+  max-width: 100vw;
+  overflow-x: clip;
   margin: 0;
   padding: 0;
 }

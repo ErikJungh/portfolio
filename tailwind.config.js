@@ -18,6 +18,7 @@ module.exports = {
         primaryButtonTextDark: "#00ffff",
         primary: "#2d2d2d",
         secondary: "#ff1f71",
+        tertiary: "#333333",
         primaryText: "#fefefe",
         secondaryText: "#bcbcbc",
       },

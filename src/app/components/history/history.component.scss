@@ -16,14 +16,12 @@ $danger: theme("colors.secondary");
 
 // timeline variables
 $body-bg: theme("colors.primary");
-$timeline-before-bg: #222a42;
-$timeline-body-bg: linear-gradient(
-  to left,
-  rgba(255, 255, 255, 0.15),
-  transparent
-);
-$timeline-body-round: 3px;
-$timeline-body-shadow: 1px 3px 9px rgba(0, 0, 0, 0.6);
+$timeline-before-bg: theme("colors.tertiary");
+$timeline-body-bg: theme("colors.tertiary");
+
+$timeline-body-round: theme("borderRadius.default");
+$timeline-body-shadow: 0 0.25rem 0.25rem rgba(0, 0, 0, 0.2),
+  0 0 1rem rgba(0, 0, 0, 0.2);
 
 body {
   font-family: "K2D", sans-serif;
@@ -36,8 +34,10 @@ body {
 // page container
 .container {
   max-width: 50vw;
-  padding-top: 50px;
   margin: auto;
+  @media screen and (max-width: 768px) {
+    max-width: 92vw;
+  }
 }
 
 // typography
@@ -54,6 +54,10 @@ p.bodyText {
   padding-left: 4rem;
   margin: 0 0 0 30px;
   color: white;
+  @media screen and (max-width: 1024px) {
+    padding-left: 1rem;
+    margin: 0 0 0 12px;
+  }
 
   &:before {
     content: "";
@@ -62,7 +66,10 @@ p.bodyText {
     top: 0;
     width: 4px;
     height: 100%;
-    background: $timeline-body-bg;
+    opacity: 0.6;
+    background: theme("colors.secondary");
+
+    box-shadow: $timeline-body-shadow;
   }
 
   .timeline-container {
@@ -79,6 +86,11 @@ p.bodyText {
       text-align: center;
       font-size: 2rem;
       background: $secondary;
+      @media screen and (max-width: 1024px) {
+        height: 48px;
+        width: 48px;
+        left: -40px;
+      }
 
       i {
         position: absolute;
@@ -100,22 +112,22 @@ p.bodyText {
       padding: 20px 20px 15px;
       box-shadow: $timeline-body-shadow;
 
-      &:before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 10%;
-        width: 60%;
-        height: 100%;
-        background: linear-gradient(
-          to left,
-          rgba(255, 255, 255, 0.15),
-          transparent
-        );
-        transform: skewX(45deg) translate(0);
-        transition: 0.5s;
-        filter: blur(0px);
-      }
+      // &:before {
+      //   content: "";
+      //   position: absolute;
+      //   top: 0;
+      //   left: 10%;
+      //   width: 60%;
+      //   height: 100%;
+      //   background: linear-gradient(
+      //     to left,
+      //     theme("colors.primary"),
+      //     transparent
+      //   );
+      //   transform: skewX(45deg) translate(0);
+      //   transition: 0.5s;
+      //   filter: blur(0px);
+      // }
 
       .timeline-title {
         margin-bottom: 1.4rem;
@@ -222,7 +234,7 @@ p.bodyText {
 }
 
 .infocard-body {
-  background: rgba(255, 255, 255, 0.15);
+  background: theme("colors.tertiary");
   border-radius: $timeline-body-round;
 
   margin-left: 40px;
@@ -261,6 +273,46 @@ p.bodyText {
   }
 }
 
+.timeline-infocard-mobile {
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out, height 0.5s ease-in-out;
+  width: full;
+  height: 0;
+
+  &.expand {
+    height: 450px;
+  }
+
+  &.fade-in {
+    opacity: 1;
+  }
+
+  &.fade-out {
+    opacity: 0;
+  }
+}
+
+.infocard-body-mobile {
+  background: theme("colors.tertiary");
+  border-radius: $timeline-body-round;
+
+  margin-top: 40px;
+  height: 450px;
+  box-shadow: $timeline-body-shadow;
+}
+.infocard-content-mobile {
+  opacity: 0;
+  padding: 20px 20px 15px;
+  animation: fadeIn 0.5s ease-in-out 1s forwards;
+
+  &.fade-in {
+    animation: fadeIn 0.5s ease-in-out 0.5s forwards;
+  }
+
+  &.fade-out {
+    animation: fadeOut 0.25s ease-in-out backwards;
+  }
+}
 h5 {
   font-size: 20px;
   color: #fefefe;

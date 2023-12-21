@@ -13,7 +13,7 @@ export class AchievementsComponent {
     const options = {
       root: null,
       rootMargin: '0px',
-      threshold: 0.5, // Adjust this threshold as needed
+      threshold: 0.1, // Adjust this threshold as needed
     };
 
     const observer = new IntersectionObserver((entries) => {

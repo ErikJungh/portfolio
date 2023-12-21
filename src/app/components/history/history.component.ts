@@ -87,16 +87,16 @@ export class HistoryComponent {
     },
     {
       title: 'Swace Digital',
-      role: 'Uppsala',
+      role: 'Konsult',
       body: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam necessitatibus numquam earum ipsa fugiat veniam suscipit, officiis repudiandae, eum recusandae neque dignissimos. Cum fugit laboriosam culpa, repellendus esse commodi deserunt.',
-      tags: ['React.js', 'MySQL', 'HTML', 'SASS', 'SCSS', 'Docker', 'AWS'],
+      tags: [],
       subtitle: 'Uppsala',
       timeLine: 'May 2010 - August 2020',
       image: 'swace_logo.webp',
     },
     {
       title: 'Rädda baren',
-      role: 'Uppsala',
+      role: 'Software Developer',
       body: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam necessitatibus numquam earum ipsa fugiat veniam suscipit, officiis repudiandae, eum recusandae neque dignissimos. Cum fugit laboriosam culpa, repellendus esse commodi deserunt.',
       tags: ['React.js', 'MySQL', 'HTML', 'SASS', 'SCSS', 'Docker', 'AWS'],
       subtitle: 'Uppsala',
@@ -221,7 +221,10 @@ export class HistoryComponent {
       image: 'savethechildren_logo.webp',
       subtitle: 'May 2018 - Augusti 2019',
       projects: [
-        { title: 'Save the Children Resource Centre', url: 'stc.com' },
+        {
+          title: 'Save the Children Resource Centre',
+          url: 'resourcecentre.savethechildren.com',
+        },
       ],
     },
     {

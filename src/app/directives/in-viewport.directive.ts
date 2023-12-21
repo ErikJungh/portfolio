@@ -4,28 +4,38 @@ import { Directive, ElementRef, HostListener, Renderer2 } from '@angular/core';
   selector: '[appInViewport]',
 })
 export class InViewportDirective {
-  constructor(private elementRef: ElementRef, private renderer: Renderer2) {}
+  private intersectionObserver!: IntersectionObserver;
 
-  @HostListener('window:scroll', [])
-  onScroll(): void {
-    this.addOrRemoveAnimateClass();
+  constructor(private elementRef: ElementRef, private renderer: Renderer2) {}
+  ngOnInit() {
+    const options = {
+      root: null,
+      rootMargin: '0px',
+      threshold: 0.01,
+    };
+
+    this.intersectionObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          this.animateElement();
+          this.intersectionObserver.unobserve(this.elementRef.nativeElement);
+        }
+      });
+    }, options);
+
+    this.intersectionObserver.observe(this.elementRef.nativeElement);
   }
 
-  private addOrRemoveAnimateClass(): void {
-    const element = this.elementRef.nativeElement as HTMLElement;
-    const rect = element.getBoundingClientRect();
-    const scrollPosition =
-      window.pageXOffset || document.documentElement.scrollLeft;
-
-    // Adjust these values according to your specific layout and requirements
-    const isInViewport =
-      rect.left >= scrollPosition &&
-      rect.right <= window.innerWidth + scrollPosition;
-
-    if (isInViewport) {
-      this.renderer.addClass(element, 'animate');
-    } else {
-      this.renderer.removeClass(element, 'animate');
+  ngOnDestroy() {
+    if (this.intersectionObserver) {
+      this.intersectionObserver.disconnect();
     }
+  }
+
+  private animateElement() {
+    // Add your animation class here
+    setTimeout(() => {
+      this.renderer.addClass(this.elementRef.nativeElement, 'animate');
+    }, 300);
   }
 }

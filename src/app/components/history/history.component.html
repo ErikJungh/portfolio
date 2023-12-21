@@ -1,5 +1,5 @@
 <div
-  class="w-screen flex flex-row h-auto bg-primary relative z-30 justify-center"
+  class="w-full flex flex-row h-auto bg-primary relative z-30 justify-center"
 >
   <div class="w-auto flex">
     <div class="container">
@@ -16,7 +16,7 @@
             />
             <img
               *ngIf="item.parentImage"
-              class="bg-cover bg-no-repeat mx-auto max-w-[32px] max-h-[32px] flex rounded-full absolute -top-2 -left-2"
+              class="bg-cover bg-no-repeat mx-auto max-w-[32px] max-h-[32px] flex rounded-full absolute left-2 lg:-top-2 lg:-left-2"
               [src]="'../../../assets/' + item.parentImage"
               alt="Card Image"
             />
@@ -37,12 +37,16 @@
             <p class="bodyText">
               {{ item.body }}
             </p>
-            <div class="flex gap-1 w-full flex-wrap py-2 max-w-[60%]">
+            <div class="flex gap-1 w-full flex-wrap py-2 lg:max-w-[60%]">
               <div
                 *ngFor="let tag of item.tags; let i = index"
                 class="bg-transparent w-fit px-3 py-1 rounded-default border-secondary border-2 border-solid"
               >
-                <p class="font-normal text-secondary">{{ tag }}</p>
+                <p
+                  class="font-extrabold lg:font-normal text-secondary text-xs lg:text-base"
+                >
+                  {{ tag }}
+                </p>
               </div>
             </div>
             <div class="flex flex-row justify-between">
@@ -59,12 +63,73 @@
               </h5>
             </div>
           </div>
+          <div
+            class="timeline-infocard-mobile top-24 block xl:hidden"
+            [ngClass]="{
+              expand: selectedIndex === i,
+              'fade-in': selectedIndex === i,
+              'fade-out': selectedIndex !== i
+            }"
+          >
+            <div class="infocard-body-mobile">
+              <div
+                class="infocard-content-mobile flex flex-col"
+                [ngClass]="{
+                  'fade-in': selectedIndex === i,
+                  'fade-out': selectedIndex !== i
+                }"
+              >
+                <div class="w-full flex-col flex items-center">
+                  <div
+                    class="h-20 flex w-full bg-primary rounded-large items-center justify-center"
+                  >
+                    <img
+                      class="bg-cover bg-no-repeat mx-auto w-auto h-16 flex rounded-large"
+                      [src]="'../../../assets/' + infoCards[i].image"
+                      alt="Card Image"
+                    />
+                  </div>
+                </div>
+                <div class="w-full pt-4">
+                  <h3 class="whitespace-nowrap custom">
+                    <span> {{ infoCards[i].title }} </span>
+                  </h3>
+                </div>
+                <div class="w-full">
+                  <h3 class="whitespace-nowrap text-sm text-secondaryText py-2">
+                    {{ infoCards[i].subtitle }}
+                  </h3>
+                </div>
+                <div class="w-full">
+                  <p class="bodyText">{{ infoCards[i].body }}</p>
+                </div>
+                <div class="w-full pt-4" *ngIf="infoCards[i].projects">
+                  <h3 class="text-secondaryText py-2">Projekt</h3>
+                  <div
+                    *ngFor="let project of infoCards[i].projects; let i = index"
+                    class="w-full h-16"
+                  >
+                    <h3 class="text-sm text-secondaryText">
+                      {{ project.title }}
+                    </h3>
+                    <a
+                      class="text-sm text-blue-500"
+                      target="_blank"
+                      rel="noopener"
+                    >
+                      {{ project.url }}
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </div>
   <div
-    class="timeline-infocard h-[70vh] pt-[50px] sticky top-12"
+    class="timeline-infocard sticky h-[70vh] top-24 hidden xl:block"
     *ngFor="let card of infoCards; let i = index"
     [ngClass]="{
       expand: selectedIndex === i,
@@ -74,13 +139,13 @@
   >
     <div class="infocard-body">
       <div
-        class="infocard-content max-h-[500px]"
+        class="infocard-content h-[50vh] flex flex-col"
         [ngClass]="{
           'fade-in': selectedIndex === i,
           'fade-out': selectedIndex !== i
         }"
       >
-        <div class="w-full h-full flex-col flex items-center">
+        <div class="w-full flex-col flex items-center">
           <div
             class="h-20 flex w-full bg-primary rounded-large items-center justify-center"
           >
@@ -92,8 +157,10 @@
           </div>
         </div>
         <div class="w-full pt-4">
-          <h3 class="whitespace-nowrap text-secondaryText">
-            {{ card.title }}
+          <h3 class="whitespace-nowrap custom">
+            <span>
+              {{ card.title }}
+            </span>
           </h3>
         </div>
         <div class="w-full">

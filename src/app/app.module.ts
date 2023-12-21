@@ -13,6 +13,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SelectedDirective } from './directives/selected.directive';
 import { AchievementsComponent } from './components/achievements/achievements.component';
 import { AnimateDivDirective } from './directives/animate-div.directive';
+import { ProjectsComponent } from './components/projects/projects.component';
+import { InViewportDirective } from './directives/in-viewport.directive';
+import { ContactComponent } from './components/contact/contact.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +30,10 @@ import { AnimateDivDirective } from './directives/animate-div.directive';
     SelectedDirective,
     AchievementsComponent,
     AnimateDivDirective,
+    ProjectsComponent,
+    InViewportDirective,
+    ContactComponent,
+    FooterComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, BrowserAnimationsModule],
   providers: [],

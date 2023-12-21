@@ -1,8 +1,8 @@
 .background-gradient {
-  background: linear-gradient(to bottom, #222222, #2d2d2d); /*fiolet*/
+  background: linear-gradient(to top, #222222, #2d2d2d); /*fiolet*/
 }
-.scroll-down-button {
-  background-image: url("../../../assets/chevron-down.svg");
+.scroll-up-button {
+  background-image: url("../../../assets/chevron-up.svg");
   background-repeat: no-repeat;
   background-size: cover;
   border: none;

@@ -1,12 +1,15 @@
-<div class="flex flex-row w-screen gap-8 justify-center opacity-0" #cardElement>
+<div
+  class="flex flex-col xl:flex-row w-full items-center gap-8 justify-center opacity-0"
+  #cardElement
+>
   <div
     *ngFor="let achievement of achievements; let i = index"
     class="container"
   >
-    <div class="card">
+    <div class="card max-h-[600px]">
       <div class="card__image-container h-[360px]">
         <img
-          [ngClass]="i == 2 ? '-mt-20' : ''"
+          [ngClass]="i == 2 ? '-mt-4' : ''"
           class="card__image"
           [src]="'../../../assets/' + achievement.image"
           alt="card image"
@@ -29,7 +32,7 @@
       </svg>
 
       <div class="card__content flex flex-col justify-between h-[250px]">
-        <h3 class="card__title header-text">
+        <h3 class="card__title custom">
           <span>{{ achievement.title }}</span>
         </h3>
         <p>

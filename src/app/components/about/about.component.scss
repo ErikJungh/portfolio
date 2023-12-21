@@ -2,6 +2,9 @@
   font: normal 40px/50px "Oswald", sans-serif;
   color: #bcbcbc;
   font-weight: 600;
+  @media screen and (max-width: 768px) {
+    font: normal 30px/50px "Oswald", sans-serif;
+  }
 }
 .Iam p {
   height: 50px;
@@ -14,6 +17,9 @@
   position: relative;
   height: 50px;
   top: 40px;
+  @media screen and (max-width: 768px) {
+    top: 32px;
+  }
 }
 .Iam .innerIam {
   display: inline-block;

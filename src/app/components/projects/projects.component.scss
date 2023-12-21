@@ -26,6 +26,24 @@ img {
   filter: drop-shadow(1px 1px 3px $color-secondary);
 }
 
+.carousel__next {
+  background-image: url(../../../assets/chevron-right.svg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 1em;
+  width: 1em;
+  scale: 8;
+}
+.carousel__prev {
+  background-image: url(../../../assets/chevron-left.svg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 1em;
+  width: 1em;
+  scale: 8;
+  left: calc(10% - 1em);
+}
+
 /* ----- Product Section ----- */
 .product {
   display: grid;
@@ -46,13 +64,23 @@ img {
 
 .photo-container {
   position: absolute;
-  left: -10.5em;
+  left: -3.5em;
   display: grid;
   grid-template-rows: 1fr;
   width: 400px;
   height: 100%;
   border-radius: 6px;
   box-shadow: 4px 4px 25px -2px rgba(0, 0, 0, 0.3);
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* For IE, Edge and Firefox */
+.scrollbar-hide {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
 }
 
 .photo-main {
@@ -114,21 +142,6 @@ img {
   }
 }
 
-.title {
-  h2 {
-    margin-bottom: 0.1em;
-    color: theme("colors.primaryText");
-    font-size: 1.5em;
-    font-weight: 900;
-    margin-top: 0;
-    padding-top: 0;
-  }
-
-  span {
-    font-size: 1em;
-    color: theme("colors.secondaryText");
-  }
-}
 h3 {
   margin-bottom: 0.1em;
   color: theme("colors.primaryText");
