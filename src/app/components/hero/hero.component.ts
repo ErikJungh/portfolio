@@ -15,6 +15,7 @@ import { DOCUMENT } from '@angular/common';
 })
 export class HeroComponent {
   @Output() toggleColorModeClick: EventEmitter<void> = new EventEmitter<void>();
+  constructor(private el: ElementRef) {}
 
   onToggleColorModeClick(): void {
     this.toggleColorModeClick.emit();
@@ -22,4 +23,23 @@ export class HeroComponent {
   @Input() toggleColorMode: (() => void) | undefined;
   colorMode: boolean = false;
   isDarkMode: boolean = false;
+
+  scrollToContact() {
+    console.log('called');
+    const targetEl =
+      this.el.nativeElement.ownerDocument.getElementById('contact');
+    if (targetEl) {
+      targetEl.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start',
+        inline: 'start',
+        scrollIntoViewOptions: {
+          block: 'start',
+          inline: 'start',
+          behavior: 'smooth',
+          offsetTop: 1000,
+        },
+      });
+    }
+  }
 }

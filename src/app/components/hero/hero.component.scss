@@ -62,3 +62,50 @@
       0 0 60px theme("colors.secondary");
   }
 }
+.profile-pic {
+  height: 900px;
+  width: 900px;
+  max-height: 80vh;
+  max-width: 80vh;
+}
+.hero-container {
+  max-width: 1600px;
+}
+
+@media screen and (max-width: 1920px) {
+  .profile-pic {
+    height: 900px;
+    width: 900px;
+  }
+  .hero-container {
+    max-width: 1400px;
+  }
+}
+@media screen and (max-width: 1620px) {
+  .profile-pic {
+    height: 700px;
+    width: 700px;
+  }
+  .hero-container {
+    max-width: 1300px;
+  }
+}
+
+@media screen and (max-width: 1280px) {
+  .profile-pic {
+    height: 300px;
+    width: 300px;
+  }
+  .hero-container {
+    max-width: 95vw;
+  }
+}
+@media screen and (max-width: 1000px) {
+  .profile-pic {
+    height: 300px;
+    width: 300px;
+  }
+  .hero-container {
+    max-width: 95vw;
+  }
+}

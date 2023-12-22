@@ -1,8 +1,8 @@
 <div class="contact-container pb-4">
   <div
-    class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-4 items-center justify-center w-fit mx-auto"
+    class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-4 items-center justify-center w-fit mx-auto my-6"
   >
-    <div class="card">
+    <div class="card h-[50%] 2xl:h-[80%]">
       <span class="icon">
         <svg
           width="72"
@@ -40,7 +40,7 @@
         <div class="line line-3"></div>
       </div>
     </div>
-    <div class="card">
+    <div class="card h-[50%] 2xl:h-[80%]">
       <span class="icon">
         <svg
           width="12"
@@ -81,7 +81,7 @@
         <div class="line line-3"></div>
       </div>
     </div>
-    <div class="card">
+    <div class="card h-[50%] 2xl:h-[80%]">
       <span class="icon">
         <svg
           width="52"
@@ -120,7 +120,7 @@
         <div class="line line-3"></div>
       </div>
     </div>
-    <div class="card">
+    <div class="card h-[50%] 2xl:h-[80%]">
       <span class="icon">
         <svg
           width="80"
@@ -160,8 +160,16 @@
     </div>
   </div>
 
-  <label class="day-night">
-    <input type="checkbox" checked />
+  <label
+    class="day-night"
+    [ngClass]="dayNightToggle.checked ? ' opacity-80' : 'opacity-50'"
+  >
+    <input
+      #dayNightToggle
+      type="checkbox"
+      checked
+      (change)="toggleLightMode($event)"
+    />
     <div></div>
   </label>
 </div>

@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, ElementRef, Input } from '@angular/core';
 
 @Component({
   selector: 'app-ej-button',
@@ -6,5 +6,8 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./ej-button.component.scss'],
 })
 export class EjButtonComponent {
+  constructor(private el: ElementRef) {}
+
   @Input() text: string = '';
+  @Input() click!: () => void;
 }

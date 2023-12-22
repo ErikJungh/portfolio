@@ -3,6 +3,7 @@
   align-items: center;
   --background-color: theme("colors.tertiary");
   --text-color: theme("colors.secondaryText");
+  --btn-color: yellow;
 
   --card-background-color: rgba(255, 255, 255, 0.015);
   --card-border-color: rgba(255, 255, 255, 0.1);
@@ -43,6 +44,7 @@
   &.light {
     --background-color: #fafafa;
     --text-color: #52525b;
+    --btn-color: theme("colors.primaryText");
 
     --card-background-color: transparent;
     --card-border-color: rgba(24, 24, 27, 0.08);
@@ -94,7 +96,7 @@
   border-radius: theme("borderRadius.default");
   cursor: pointer;
   width: 250px;
-  height: 180px;
+  min-height: 180px;
   position: relative;
   transition: box-shadow 0.25s;
 
@@ -522,10 +524,11 @@
 
 .day-night {
   cursor: pointer;
-  position: absolute;
+  position: fixed;
   right: 20px;
   top: 20px;
-  opacity: 0.3;
+  z-index: 100000;
+  scale: 1.7;
 
   input {
     display: none;
@@ -535,7 +538,7 @@
       width: 20px;
       height: 20px;
       position: relative;
-      box-shadow: inset 8px -8px 0 0 var(--text-color);
+      box-shadow: inset 8px -8px 0 0 var(--btn-color);
       transform: scale(1) rotate(-2deg);
       transition: box-shadow 0.5s ease 0s, transform 0.4s ease 0.1s;
 
@@ -559,22 +562,22 @@
         position: absolute;
         top: 50%;
         left: 50%;
-        box-shadow: 0 -23px 0 var(--text-color), 0 23px 0 var(--text-color),
-          23px 0 0 var(--text-color), -23px 0 0 var(--text-color),
-          15px 15px 0 var(--text-color), -15px 15px 0 var(--text-color),
-          15px -15px 0 var(--text-color), -15px -15px 0 var(--text-color);
+        box-shadow: 0 -23px 0 var(--btn-color), 0 23px 0 var(--btn-color),
+          23px 0 0 var(--btn-color), -23px 0 0 var(--btn-color),
+          15px 15px 0 var(--btn-color), -15px 15px 0 var(--btn-color),
+          15px -15px 0 var(--btn-color), -15px -15px 0 var(--btn-color);
         transform: scale(0);
         transition: all 0.3s ease;
       }
     }
 
     &:checked + div {
-      box-shadow: inset 20px -20px 0 0 var(--text-color);
+      box-shadow: inset 20px -20px 0 0 var(--btn-color);
       transform: scale(0.5) rotate(0deg);
       transition: transform 0.3s ease 0.1s, box-shadow 0.2s ease 0s;
 
       &:before {
-        background: var(--text-color);
+        background: var(--btn-color);
         transition: background-color 0.3s ease 0.1s;
       }
 
@@ -596,40 +599,5 @@ html {
   &:before,
   &:after {
     box-sizing: inherit;
-  }
-}
-
-// Center
-body {
-  min-height: 100vh;
-  display: flex;
-  font-family: "Inter", Arial;
-  justify-content: center;
-  align-items: center;
-  background-color: var(--background-color);
-  overflow: hidden;
-
-  &:before {
-    content: "";
-    position: absolute;
-    inset: 0 -60% 65% -60%;
-    background-image: radial-gradient(
-      ellipse at top,
-      #10b981 0%,
-      var(--background-color) 50%
-    );
-    opacity: var(--blur-opacity);
-  }
-
-  .twitter {
-    position: fixed;
-    display: block;
-    right: 12px;
-    bottom: 12px;
-    svg {
-      width: 32px;
-      height: 32px;
-      fill: #fff;
-    }
   }
 }

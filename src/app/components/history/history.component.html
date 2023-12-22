@@ -1,129 +1,186 @@
 <div
-  class="w-full flex flex-row h-auto bg-primary relative z-30 justify-center"
+  class="w-full flex flex-row h-auto bg-primaryLight dark:bg-primary relative z-30 justify-center"
 >
   <div class="w-auto flex">
     <div class="container">
       <div class="timeline">
-        <div
-          *ngFor="let item of timeLineItems; let i = index"
-          class="timeline-container primary"
-        >
-          <div class="timeline-icon">
-            <img
-              class="bg-cover bg-no-repeat mx-auto w-auto h-16 flex rounded-full"
-              [src]="'../../../assets/' + item.image"
-              alt="Card Image"
-            />
-            <img
-              *ngIf="item.parentImage"
-              class="bg-cover bg-no-repeat mx-auto max-w-[32px] max-h-[32px] flex rounded-full absolute left-2 lg:-top-2 lg:-left-2"
-              [src]="'../../../assets/' + item.parentImage"
-              alt="Card Image"
-            />
-          </div>
-          <div class="timeline-body">
-            <div class="flex-row flex justify-between w-full">
-              <h4 class="text-base flex">
-                <span class="text-secondaryText">{{ item.title }}</span>
-              </h4>
-              <h4 class="text-base flex">
-                <span class="text-secondaryText">{{ item.timeLine }}</span>
-              </h4>
-            </div>
-            <h4 class="text-xl py-2">
-              <span class="text-secondaryText">{{ item.role }}</span>
-            </h4>
-
-            <p class="bodyText">
-              {{ item.body }}
-            </p>
-            <div class="flex gap-1 w-full flex-wrap py-2 lg:max-w-[60%]">
-              <div
-                *ngFor="let tag of item.tags; let i = index"
-                class="bg-transparent w-fit px-3 py-1 rounded-default border-secondary border-2 border-solid"
-              >
-                <p
-                  class="font-extrabold lg:font-normal text-secondary text-xs lg:text-base"
-                >
-                  {{ tag }}
-                </p>
-              </div>
-            </div>
-            <div class="flex flex-row justify-between">
-              <p class="bodyText timeline-subtitle">{{ item.subtitle }}</p>
-              <h5
-                class="timeline-show-more cursor-pointer"
-                [@textAnimation]="
-                  selectedIndex === i ? 'expanded' : 'collapsed'
-                "
-                (click)="setSelectedIndex(i)"
-              >
-                <span *ngIf="selectedIndex !== i">Visa mer</span>
-                <span *ngIf="selectedIndex === i">Dölj</span>
-              </h5>
-            </div>
-          </div>
+        <ng-container *ngFor="let item of timeLineItems; let i = index">
           <div
-            class="timeline-infocard-mobile top-24 block xl:hidden"
-            [ngClass]="{
-              expand: selectedIndex === i,
-              'fade-in': selectedIndex === i,
-              'fade-out': selectedIndex !== i
-            }"
+            class="timeline-container primary"
+            *ngIf="fullHistoryExpanded || i < previewLength"
           >
-            <div class="infocard-body-mobile">
-              <div
-                class="infocard-content-mobile flex flex-col"
-                [ngClass]="{
-                  'fade-in': selectedIndex === i,
-                  'fade-out': selectedIndex !== i
-                }"
+            <div class="timeline-icon">
+              <img
+                class="bg-cover bg-no-repeat mx-auto w-auto h-16 flex rounded-full"
+                [src]="'../../../assets/' + item.image"
+                alt="Card Image"
+              />
+              <img
+                *ngIf="item.parentImage"
+                class="bg-cover bg-no-repeat mx-auto max-w-[32px] max-h-[32px] flex rounded-full absolute left-2 lg:-top-2 lg:-left-2"
+                [src]="'../../../assets/' + item.parentImage"
+                alt="Card Image"
+              />
+            </div>
+            <div
+              class="timeline-body bg-tertiaryLight dark:bg-tertiary"
+              [ngClass]="
+                i == previewLength - 1 && !fullHistoryExpanded
+                  ? 'hidden-timeline'
+                  : ''
+              "
+            >
+              <div class="flex-row flex justify-between w-full">
+                <h4 class="text-base flex">
+                  <span
+                    class="text-secondaryTextLight dark:text-secondaryText"
+                    >{{ item.title }}</span
+                  >
+                </h4>
+                <h4 class="text-base flex">
+                  <span
+                    class="text-secondaryTextLight dark:text-secondaryText"
+                    >{{ item.timeLine }}</span
+                  >
+                </h4>
+              </div>
+              <h4 class="text-xl py-2">
+                <span class="text-secondaryTextLight dark:text-secondaryText">{{
+                  item.role
+                }}</span>
+              </h4>
+
+              <p
+                class="bodyText text-secondaryTextLight dark:text-secondaryText"
               >
-                <div class="w-full flex-col flex items-center">
-                  <div
-                    class="h-20 flex w-full bg-primary rounded-large items-center justify-center"
+                {{ item.body }}
+              </p>
+              <div class="flex gap-1 w-full flex-wrap py-2 lg:max-w-[60%]">
+                <div
+                  *ngFor="let tag of item.tags; let i = index"
+                  class="bg-transparent w-fit px-3 py-1 rounded-default border-secondary border-2 border-solid"
+                >
+                  <p
+                    class="font-extrabold lg:font-normal text-secondary text-xs lg:text-base"
                   >
-                    <img
-                      class="bg-cover bg-no-repeat mx-auto w-auto h-16 flex rounded-large"
-                      [src]="'../../../assets/' + infoCards[i].image"
-                      alt="Card Image"
-                    />
-                  </div>
+                    {{ tag }}
+                  </p>
                 </div>
-                <div class="w-full pt-4">
-                  <h3 class="whitespace-nowrap custom">
-                    <span> {{ infoCards[i].title }} </span>
-                  </h3>
-                </div>
-                <div class="w-full">
-                  <h3 class="whitespace-nowrap text-sm text-secondaryText py-2">
-                    {{ infoCards[i].subtitle }}
-                  </h3>
-                </div>
-                <div class="w-full">
-                  <p class="bodyText">{{ infoCards[i].body }}</p>
-                </div>
-                <div class="w-full pt-4" *ngIf="infoCards[i].projects">
-                  <h3 class="text-secondaryText py-2">Projekt</h3>
-                  <div
-                    *ngFor="let project of infoCards[i].projects; let i = index"
-                    class="w-full h-16"
+              </div>
+              <div class="flex flex-row justify-between">
+                <p
+                  class="bodyText timeline-subtitle text-secondaryTextLight dark:text-secondaryText"
+                >
+                  {{ item.subtitle }}
+                </p>
+                <h5
+                  class="timeline-show-more cursor-pointer bg-primaryLight dark:bg-primary"
+                  [@textAnimation]="
+                    selectedIndex === i ? 'expanded' : 'collapsed'
+                  "
+                  (click)="setSelectedIndex(i)"
+                >
+                  <span
+                    class="text-secondaryTextLight dark:text-secondaryText"
+                    *ngIf="selectedIndex !== i"
+                    >Visa mer</span
                   >
-                    <h3 class="text-sm text-secondaryText">
-                      {{ project.title }}
-                    </h3>
-                    <a
-                      class="text-sm text-blue-500"
-                      target="_blank"
-                      rel="noopener"
+                  <span
+                    class="text-secondaryTextLight dark:text-secondaryText"
+                    *ngIf="selectedIndex === i"
+                    >Dölj</span
+                  >
+                </h5>
+              </div>
+            </div>
+            <div
+              class="timeline-infocard-mobile top-24 block xl:hidden"
+              [ngClass]="{
+                expand: selectedIndex === i,
+                'fade-in': selectedIndex === i,
+                'fade-out': selectedIndex !== i
+              }"
+            >
+              <div class="infocard-body-mobile">
+                <div
+                  class="infocard-content-mobile flex flex-col"
+                  [ngClass]="{
+                    'fade-in': selectedIndex === i,
+                    'fade-out': selectedIndex !== i
+                  }"
+                >
+                  <div class="w-full flex-col flex items-center">
+                    <div
+                      class="h-20 flex w-full bg-primary rounded-large items-center justify-center"
                     >
-                      {{ project.url }}
-                    </a>
+                      <img
+                        class="bg-cover bg-no-repeat mx-auto w-auto h-16 flex rounded-large"
+                        [src]="'../../../assets/' + infoCards[i].image"
+                        alt="Card Image"
+                      />
+                    </div>
+                  </div>
+                  <div class="w-full pt-4">
+                    <h3 class="whitespace-nowrap custom">
+                      <span> {{ infoCards[i].title }} </span>
+                    </h3>
+                  </div>
+                  <div class="w-full">
+                    <h3
+                      class="whitespace-nowrap text-sm text-secondaryText py-2"
+                    >
+                      {{ infoCards[i].subtitle }}
+                    </h3>
+                  </div>
+                  <div class="w-full">
+                    <p class="bodyText">{{ infoCards[i].body }}</p>
+                  </div>
+                  <div class="w-full pt-4" *ngIf="infoCards[i].projects">
+                    <h3 class="text-secondaryText py-2">Projekt</h3>
+                    <div
+                      *ngFor="
+                        let project of infoCards[i].projects;
+                        let i = index
+                      "
+                      class="w-full h-16"
+                    >
+                      <h3 class="text-sm text-secondaryText">
+                        {{ project.title }}
+                      </h3>
+                      <a
+                        class="text-sm text-blue-500"
+                        target="_blank"
+                        rel="noopener"
+                      >
+                        {{ project.url }}
+                      </a>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
+        </ng-container>
+        <div
+          class="w-full flex justify-center relative z-[10000]"
+          [ngClass]="!fullHistoryExpanded ? '-top-[200px]' : ''"
+        >
+          <h5
+            class="timeline-expand px-20 py-6 cursor-pointer whitespace-nowrap bg-primaryLight dark:bg-primary"
+            [@textAnimation]="fullHistoryExpanded ? 'expanded' : 'collapsed'"
+            (click)="toggleShowMore()"
+          >
+            <span
+              class="text-secondaryTextLight dark:text-secondaryText"
+              *ngIf="!fullHistoryExpanded"
+              >Visa mer</span
+            >
+            <span
+              class="text-secondaryTextLight dark:text-secondaryText"
+              *ngIf="fullHistoryExpanded"
+              >Dölj</span
+            >
+          </h5>
         </div>
       </div>
     </div>

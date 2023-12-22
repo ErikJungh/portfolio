@@ -1,4 +1,10 @@
-import { Component, ElementRef, ViewChild, AfterViewInit } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  ViewChild,
+  AfterViewInit,
+  Renderer2,
+} from '@angular/core';
 
 @Component({
   selector: 'app-achievements',
@@ -8,6 +14,12 @@ import { Component, ElementRef, ViewChild, AfterViewInit } from '@angular/core';
 export class AchievementsComponent {
   @ViewChild('cardElement')
   cardElement!: ElementRef;
+  isDarkMode: boolean = true;
+  constructor(private renderer: Renderer2, public elementRef: ElementRef) {}
+
+  ngOnInit() {
+    this.checkBodyClass();
+  }
 
   ngAfterViewInit() {
     const options = {
@@ -66,4 +78,9 @@ export class AchievementsComponent {
       image: 'azure.png',
     },
   ];
+
+  checkBodyClass(): void {
+    const body = this.elementRef.nativeElement.ownerDocument.body;
+    this.isDarkMode = body.classList.contains('dark');
+  }
 }

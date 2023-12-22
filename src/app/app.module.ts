@@ -20,6 +20,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { ProjectsMobileComponent } from './components/projects-mobile/projects-mobile.component';
 import { MobileHeaderComponent } from './components/mobile-header/mobile-header.component';
 import { SidenavComponent } from './components/sidenav/sidenav.component';
+import { AboutErikComponent } from './components/about-erik/about-erik.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -39,6 +40,7 @@ import { SidenavComponent } from './components/sidenav/sidenav.component';
     ProjectsMobileComponent,
     MobileHeaderComponent,
     SidenavComponent,
+    AboutErikComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, BrowserAnimationsModule],
   providers: [],

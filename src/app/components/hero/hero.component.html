@@ -1,29 +1,32 @@
 <div
-  class="h-[90vh] min-h-[650px] flex mx-auto overflow-hidden hero-gradient -mt-16"
+  class="h-[90vh] min-h-[650px] max-h-[1000px] flex mx-auto overflow-hidden hero-gradient -mt-16"
 >
   <!-- <button (click)="onToggleColorModeClick()">
     <p>Toggle color mode</p>
   </button> -->
   <div
-    class="2xl:max-w-[80vw] w-full h-full flex flex-col 2xl:flex-row m-auto justify-evenly"
+    class="hero-container w-full h-full flex flex-col xl:flex-row m-auto justify-evenly"
   >
-    <div class="flex flex-col h-full px-8 w-full 2xl:w-1/2 justify-center">
+    <div class="flex flex-col h-full px-8 w-full xl:w-1/2 justify-center">
       <div>
-        <p class="text-2xl text-[#bcbcbc] font-semibold py-0 my-0">
+        <p class="text-2xl text-secondaryText font-semibold py-0 my-0">
           Hej, Jag heter Erik!
         </p>
         <div class="w-full flex max-h-32">
           <app-about></app-about>
         </div>
       </div>
-      <div class="flex mt-20 2xl:mt-16">
-        <app-ej-button [text]="'Kontakta mig'"></app-ej-button>
+      <div class="flex mt-20 xl:mt-16">
+        <app-ej-button
+          [text]="'Kontakta mig'"
+          [click]="scrollToContact"
+        ></app-ej-button>
       </div>
     </div>
-    <div class="flex w-full 2xl:w-1/2 h-[30%] 2xl:h-full">
-      <div class="h-full w-full flex justify-center items-end 2xl:justify-end">
+    <div class="flex w-full xl:w-1/2 h-[30%] xl:h-full">
+      <div class="h-full w-full flex justify-center items-end xl:justify-end">
         <div
-          class="absolute items-end justify-end z-10 w-[70vw] h-[70vw] 2xl:w-[70vh] 2xl:h-[70vh] rounded-full"
+          class="absolute items-end justify-end z-10 rounded-full profile-pic"
         >
           <div
             class="absolute justify-end items-end flex z-20 w-full h-full -bottom-20 rounded-full"

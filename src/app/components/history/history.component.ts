@@ -22,7 +22,8 @@ import { Component, ElementRef, Renderer2, ViewChild } from '@angular/core';
 export class HistoryComponent {
   selectedIndex: number = -1;
   showContentIndex: number = -1;
-
+  fullHistoryExpanded: boolean = false;
+  previewLength: number = 4;
   @ViewChild('timelineInfocard', { static: false })
   timelineInfocard!: ElementRef;
 
@@ -286,7 +287,7 @@ export class HistoryComponent {
       subtitle: 'May 2018 - Augusti 2019',
     },
   ];
-  constructor(private renderer: Renderer2) {}
+  constructor(private renderer: Renderer2, private el: ElementRef) {}
 
   setSelectedIndex(index: number) {
     if (this.selectedIndex == index) {
@@ -297,6 +298,23 @@ export class HistoryComponent {
       setTimeout(() => {
         this.showContentIndex = this.selectedIndex;
       }, 500);
+    }
+  }
+
+  toggleShowMore() {
+    console.log('toggle', this.fullHistoryExpanded);
+    this.fullHistoryExpanded = !this.fullHistoryExpanded;
+
+    if (!this.fullHistoryExpanded) {
+      const targetEl =
+        this.el.nativeElement.ownerDocument.getElementById('history');
+      if (targetEl) {
+        targetEl.scrollIntoView({
+          behavior: 'instant',
+          block: 'start',
+          inline: 'start',
+        });
+      }
     }
   }
 }

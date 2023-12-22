@@ -6,6 +6,15 @@
     font: normal 30px/50px "Oswald", sans-serif;
   }
 }
+
+.Ilike {
+  font: normal 40px/50px "Oswald", sans-serif !important;
+  color: #bcbcbc;
+  font-weight: 600;
+  @media screen and (max-width: 768px) {
+    font: normal 30px/50px "Oswald", sans-serif !important;
+  }
+}
 .Iam p {
   height: 50px;
   float: left;

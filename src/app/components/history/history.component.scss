@@ -44,8 +44,6 @@ body {
 p.bodyText {
   font-weight: 300;
   line-height: 1.5;
-  font-size: 14px;
-  opacity: 0.8;
 }
 
 // timeline style
@@ -107,7 +105,7 @@ p.bodyText {
     }
 
     .timeline-body {
-      background: $timeline-body-bg;
+      // background: $timeline-body-bg;
       border-radius: $timeline-body-round;
       padding: 20px 20px 15px;
       box-shadow: $timeline-body-shadow;
@@ -157,7 +155,21 @@ p.bodyText {
         font-style: normal;
         opacity: 0.8;
         font-size: 14px;
-        background-color: theme("colors.primary");
+        padding: 4px 20px 4px 20px;
+        justify-content: center;
+        align-items: center;
+        display: flex;
+        border-radius: theme("borderRadius.default");
+      }
+      .timeline-expand {
+        display: inline-block;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        font-weight: 500;
+        font-style: normal;
+        opacity: 0.8;
+        font-size: 14px;
         padding: 4px 20px 4px 20px;
         justify-content: center;
         align-items: center;
@@ -167,7 +179,6 @@ p.bodyText {
     }
 
     .timeline-subitem-body {
-      background: $timeline-body-bg;
       border-radius: $timeline-body-round;
       padding: 20px 20px 15px;
       box-shadow: $timeline-body-shadow;
@@ -230,6 +241,19 @@ p.bodyText {
 
   &.fade-out {
     opacity: 0;
+  }
+}
+.hidden-timeline {
+  &:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    z-index: 1000;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top, theme("colors.primary"), #33333377);
+    transition: 0.5s;
   }
 }
 
@@ -335,4 +359,18 @@ h5 {
       background-size: 100%;
     }
   }
+}
+.timeline-expand {
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 20px;
+  border: 4px solid theme("colors.secondary");
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  border-radius: theme("borderRadius.default");
 }

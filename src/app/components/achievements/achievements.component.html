@@ -6,7 +6,9 @@
     *ngFor="let achievement of achievements; let i = index"
     class="container"
   >
-    <div class="card max-h-[600px]">
+    <div
+      class="card max-h-[600px] 2xl:max-h-[900px] bg-tertiaryLight dark:bg-tertiary"
+    >
       <div class="card__image-container h-[360px]">
         <img
           [ngClass]="i == 2 ? '-mt-4' : ''"
@@ -20,7 +22,7 @@
         <path
           d="M 0 100 Q 50 200 100 250 Q 250 400 350 300 C 400 250 550 150 650 300 Q 750 450 800 400 L 800 500 L 0 500"
           stroke="transparent"
-          fill="#333"
+          [attr.fill]="isDarkMode ? '#333' : '#e9e9e9'"
         />
         <path
           class="card__line"
@@ -31,7 +33,9 @@
         />
       </svg>
 
-      <div class="card__content flex flex-col justify-between h-[250px]">
+      <div
+        class="card__content flex flex-col justify-between h-[250px] 2xl:h-[300px]"
+      >
         <h3 class="card__title custom">
           <span>{{ achievement.title }}</span>
         </h3>

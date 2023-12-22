@@ -51,3 +51,24 @@ h6,
 p {
   font-family: "Oswald", sans-serif;
 }
+
+p {
+  font-size: 16px;
+}
+
+@media screen and (min-width: 1200px) {
+  p {
+    font-size: 16px !important;
+  }
+}
+@media screen and (min-width: 1600px) {
+  p {
+    font-size: 20px !important;
+  }
+}
+
+@media screen and (min-width: 2000px) {
+  p {
+    font-size: 22px !important;
+  }
+}

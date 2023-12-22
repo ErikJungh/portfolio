@@ -8,10 +8,13 @@ module.exports = {
     extend: {
       colors: {
         // Define your colors here
-        primaryDark: "#333", // Example dark color
-        primaryLight: "#FFFFFF", // Example light color
+        primaryDark: "#333", 
+        primaryLight: "#FFFFFF", 
+        secondaryLight: "#ff1f71",
+        tertiaryLight: "#e9e9e9",
         primaryTextDark: "#ffffff",
         primaryTextLight: "#000000",
+        secondaryTextLight: "#333333",
         primaryButtonBgLight: "#ff0000",
         primaryButtonBgDark: "#00ff00",
         primaryButtonTextLight: "#000000",
