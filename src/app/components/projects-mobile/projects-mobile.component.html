@@ -19,14 +19,18 @@
       <div
         class="w-full h-[90vh] min-h-[700px] justify-center items-center mx-auto overflow-y-hidden"
       >
-        <section class="product">
+        <section class="product bg-primaryLight dark:bg-primaryDark">
           <div
             class="w-full py-2 px-4 justify-center items-center flex flex-col"
           >
             <h3 class="custom">
-              <span>{{ project.title }}</span>
+              <span class="text-primaryTextLight dark:text-primaryTextDark">{{
+                project.title
+              }}</span>
             </h3>
-            <h4>{{ project.subtitle }}</h4>
+            <h4 class="text-secondaryTextLight dark:text-secondaryText">
+              {{ project.subtitle }}
+            </h4>
           </div>
           <div class="product__photo">
             <div class="photo-container">
@@ -53,7 +57,11 @@
             </div>
           </div>
           <div class="w-full h-[30%]">
-            <p class="px-8 pt-8 max-w-[700px] mx-auto">{{ project.body }}</p>
+            <p
+              class="px-8 pt-8 max-w-[700px] mx-auto text-secondaryTextLight dark:text-secondaryText"
+            >
+              {{ project.body }}
+            </p>
           </div>
           <app-ej-button [text]="project.btnText"></app-ej-button>
         </section>

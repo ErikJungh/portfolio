@@ -42,10 +42,10 @@
   --blur-opacity: 0.01;
 
   &.light {
-    --background-color: #fafafa;
+    --background-color: theme("colors.tertiaryLight");
     --text-color: #52525b;
-    --btn-color: theme("colors.primaryText");
 
+    --btn-color: yellow;
     --card-background-color: transparent;
     --card-border-color: rgba(24, 24, 27, 0.08);
     --card-box-shadow-1: rgba(24, 24, 27, 0.02);
@@ -523,12 +523,15 @@
 }
 
 .day-night {
+  background-color: theme("colors.primary");
+  border-radius: 100%;
+  padding: 0.65em;
   cursor: pointer;
   position: fixed;
   right: 20px;
-  top: 20px;
+  top: 10px;
   z-index: 100000;
-  scale: 1.7;
+  scale: 1;
 
   input {
     display: none;

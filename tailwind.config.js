@@ -8,12 +8,14 @@ module.exports = {
     extend: {
       colors: {
         // Define your colors here
-        primaryDark: "#333", 
-        primaryLight: "#FFFFFF", 
-        secondaryLight: "#ff1f71",
-        tertiaryLight: "#e9e9e9",
+        primaryDark: "#333",
+        primaryLight: "#ffffffff", //light
+        secondaryDark: "#ff1f71",
+        secondaryLight: "#efdfbf", //light
+        tertiaryLight: "#dfdfdf", //light
         primaryTextDark: "#ffffff",
         primaryTextLight: "#000000",
+        secondaryTextDark: "#bcbcbc",
         secondaryTextLight: "#333333",
         primaryButtonBgLight: "#ff0000",
         primaryButtonBgDark: "#00ff00",
@@ -29,6 +31,10 @@ module.exports = {
         // Default border radius of 10px
         default: "4px",
         large: "8px",
+      },
+      boxShadow: {
+        default:
+          "0 0.25rem 0.25rem rgba(0, 0, 0, 0.2), 0 0 1rem rgba(0, 0, 0, 0.2)",
       },
     },
   },

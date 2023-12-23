@@ -23,10 +23,10 @@
               />
             </div>
             <div
-              class="timeline-body bg-tertiaryLight dark:bg-tertiary"
+              class="timeline-body bg-tertiaryLight dark:bg-tertiary shadow-default"
               [ngClass]="
                 i == previewLength - 1 && !fullHistoryExpanded
-                  ? 'hidden-timeline'
+                  ? 'hidden-timeline before:bg-gradient-to-t  to-transparent from-tertiaryLight dark:to-transparent dark:from-black '
                   : ''
               "
             >
@@ -111,7 +111,7 @@
                 >
                   <div class="w-full flex-col flex items-center">
                     <div
-                      class="h-20 flex w-full bg-primary rounded-large items-center justify-center"
+                      class="h-20 flex w-full bg-primaryLight dark:bg-primary rounded-large items-center justify-center"
                     >
                       <img
                         class="bg-cover bg-no-repeat mx-auto w-auto h-16 flex rounded-large"
@@ -196,7 +196,7 @@
   >
     <div class="infocard-body">
       <div
-        class="infocard-content h-[50vh] flex flex-col"
+        class="infocard-content bg-tertiaryLight dark:bg-tertiary h-[50vh] flex flex-col"
         [ngClass]="{
           'fade-in': selectedIndex === i,
           'fade-out': selectedIndex !== i
@@ -204,7 +204,7 @@
       >
         <div class="w-full flex-col flex items-center">
           <div
-            class="h-20 flex w-full bg-primary rounded-large items-center justify-center"
+            class="h-20 flex w-full bg-tertiaryLight dark:bg-tertiary rounded-large items-center justify-center"
           >
             <img
               class="bg-cover bg-no-repeat mx-auto w-auto h-16 flex rounded-large"
@@ -215,23 +215,29 @@
         </div>
         <div class="w-full pt-4">
           <h3 class="whitespace-nowrap custom">
-            <span>
+            <span class="text-primaryTextLight dark:text-primaryTextDark">
               {{ card.title }}
             </span>
           </h3>
         </div>
         <div class="w-full">
-          <h3 class="whitespace-nowrap text-sm text-secondaryText py-2">
+          <h3
+            class="whitespace-nowrap text-sm text-secondaryTextLight dark:text-secondaryTextDark py-2"
+          >
             {{ card.subtitle }}
           </h3>
         </div>
         <div class="w-full">
-          <p class="bodyText">
+          <p
+            class="bodyText text-secondaryTextLight dark:text-secondaryTextDark"
+          >
             {{ card.body }}
           </p>
         </div>
         <div class="w-full pt-4" *ngIf="card.projects">
-          <h3 class="text-secondaryText py-2">Projekt</h3>
+          <h3 class="text-secondaryTextLight dark:text-secondaryTextDark py-2">
+            Projekt
+          </h3>
           <div
             *ngFor="let project of card.projects; let i = index"
             class="w-full h-16"

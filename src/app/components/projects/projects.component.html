@@ -1,11 +1,11 @@
 <div class="w-full relative overflow-x-scroll scrollbar-hide -mt-[2em]">
   <a
-    class="sticky top-[50%] z-10 cursor-pointer carousel__prev block"
+    class="sticky top-[50%] z-10 cursor-pointer carousel__prev block dark:invert opacity-50"
     (click)="scrollToSection(-1)"
   >
   </a>
   <a
-    class="sticky top-[50%] z-10 left-[90%] cursor-pointer carousel__next block"
+    class="sticky top-[50%] z-10 left-[90%] cursor-pointer carousel__next block dark:invert opacity-50"
     (click)="scrollToSection(1)"
   >
   </a>
@@ -18,7 +18,7 @@
       <div
         class="w-[65vw] max-w-[1400px] justify-center items-center mx-auto pb-12"
       >
-        <section class="product">
+        <section class="product bg-tertiaryLight dark:bg-tertiary">
           <div class="product__photo">
             <div class="photo-container">
               <div class="photo-main" [id]="'photoContainer' + i">
@@ -46,12 +46,18 @@
           <div class="h-full w-full px-2 flex flex-col justify-between">
             <div class="title h-[30%]">
               <h3 class="custom">
-                <span>{{ project.title }}</span>
+                <span class="text-primaryTextLight dark:text-primaryTextDark">{{
+                  project.title
+                }}</span>
               </h3>
-              <h4 class="text-[30px] font-extrabold">{{ project.subtitle }}</h4>
+              <h4
+                class="text-[30px] font-extrabold text-secondaryTextLight dark:text-secondaryText"
+              >
+                {{ project.subtitle }}
+              </h4>
             </div>
             <div class="h-[30%]">
-              <p>
+              <p class="text-secondaryTextLight dark:text-secondaryText">
                 {{ project.body }}
               </p>
             </div>
