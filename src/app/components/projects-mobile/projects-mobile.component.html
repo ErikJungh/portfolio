@@ -9,7 +9,7 @@
     (click)="scrollToSection(1)"
   >
   </a>
-  <div class="w-[400vw] flex flex-row">
+  <div class="w-[300vw] flex flex-row">
     <div
       #carousel
       class="w-full"
@@ -36,19 +36,19 @@
             <div class="photo-container">
               <div class="photo-main" [id]="'photoContainer' + i">
                 <img
-                  src="../../../assets/iPhone.svg"
+                  [src]="'../../../assets/appimages/' + project.images[0]"
                   alt="phone image 1"
                   class="image-primary"
                   appInViewport
                 />
                 <img
-                  src="../../../assets/iPhone.svg"
+                  [src]="'../../../assets/appimages/' + project.images[1]"
                   alt="phone image 2"
                   class="image-secondary"
                   appInViewport
                 />
                 <img
-                  src="../../../assets/iPhone.svg"
+                  [src]="'../../../assets/appimages/' + project.images[2]"
                   alt="phone image 3"
                   class="image-tertiary"
                   appInViewport

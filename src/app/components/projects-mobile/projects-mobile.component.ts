@@ -24,34 +24,31 @@ export class ProjectsMobileComponent {
     body: string;
     tags: string[];
     btnText: string;
+    images: string[];
   }[] = [
     {
       title: 'Plain Sight',
-      subtitle: 'Cross Platform Mobile App',
-      body: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam necessitatibus numquam earum ipsa fugiat veniam suscipit, officiis repudiandae, eum recusandae neque dignissimos. Cum fugit laboriosam culpa, repellendus esse commodi deserunt.',
+      subtitle: 'Se åsikter över hela världen',
+      body: 'Jag skapade Plainsight som ett startup tillsammans med två vänner. Plainsight är tänkt att vara ett sätt för folk att visa platsbaserade åsikter om alla möjliga ämnen över hela världen. Appens frontend är helt utvecklad utav mig med hjälp av React Native.',
       tags: ['React Native', 'Google Cloud', 'Native Base'],
-      btnText: 'Till Repo',
+      btnText: 'Till repo',
+      images: ['plainsight1.svg', 'plainsight2.svg', 'plainsight3.svg'],
+    },
+    {
+      title: 'Quantify Bio',
+      subtitle: 'Studera ditt blodsocker',
+      body: 'Jag utvecklade Quantify Bio som en del av mitt kandidatarbete. Appen är utvecklad i Flutter och ger användaren möjligheten att logga sina tränings och matvanor för att sedan jämföra dessa med blodsocker. Blodsockret läses in via NFC från en extern sensor som sitter i armen.',
+      tags: ['Flutter', 'Dart', 'Firebase', 'Firestore'],
+      btnText: 'Till repo',
+      images: ['quantify1.svg', 'quantify2.svg', 'quantify3.svg'],
     },
     {
       title: 'Plain Sight',
-      subtitle: 'Se åsikter över hela världen',
-      body: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam necessitatibus numquam earum ipsa fugiat veniam suscipit, officiis repudiandae, eum recusandae neque dignissimos. Cum fugit laboriosam culpa, repellendus esse commodi deserunt.',
+      subtitle: 'Håll koll på vad du äter',
+      body: 'Jag utvecklade Vegify parallelt med mina studier för att hjälpa folk att identfiera allergier i matvaror. Användaren kan scanna sträckkoden eller manuellt söka efter matvaror för att se ingredienser och få varningar om allergener. Användaren kan även skapa, dela och söka bland recept efter allergener.',
       tags: ['React Native', 'Google Cloud', 'Native Base'],
-      btnText: 'Till Repo',
-    },
-    {
-      title: 'Plain Sight',
-      subtitle: 'Se åsikter över hela världen',
-      body: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam necessitatibus numquam earum ipsa fugiat veniam suscipit, officiis repudiandae, eum recusandae neque dignissimos. Cum fugit laboriosam culpa, repellendus esse commodi deserunt.',
-      tags: ['React Native', 'Google Cloud', 'Native Base'],
-      btnText: 'Till Repo',
-    },
-    {
-      title: 'Plain Sight',
-      subtitle: 'Se åsikter över hela världen',
-      body: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam necessitatibus numquam earum ipsa fugiat veniam suscipit, officiis repudiandae, eum recusandae neque dignissimos. Cum fugit laboriosam culpa, repellendus esse commodi deserunt.',
-      tags: ['React Native', 'Google Cloud', 'Native Base'],
-      btnText: 'Till Repo',
+      btnText: 'Till repo',
+      images: ['vegify1.svg', 'vegify2.svg', 'vegify3.svg'],
     },
   ];
 
